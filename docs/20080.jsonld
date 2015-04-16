@@ -1,0 +1,86 @@
+{
+	"@context": {
+		"ows":"http://vocab.occupy.net/ows#",
+		"schema":"http://schema.org/",
+		"content":"http://purl.org/rss/1.0/modules/content/",
+		"dc":"http://purl.org/dc/terms/",
+		"foaf":"http://xmlns.com/foaf/0.1/",
+		"og":"http://ogp.me/ns#",
+		"rdfs":"http://www.w3.org/2000/01/rdf-schema#",
+		"sioc":"http://rdfs.org/sioc/ns#",
+		"sioct":"http://rdfs.org/sioc/types#",
+		"skos":"http://www.w3.org/2004/02/skos/core#",
+		"xsd":"http://www.w3.org/2001/XMLSchema#",
+		"owl":"http://www.w3.org/2002/07/owl#",
+		"rdf":"http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+		"rss":"http://purl.org/rss/1.0/",
+		"site":"http://directory.occupy.net/ns#"
+	},
+	
+	"@id":"http://directory.occupy.net/occupation/rs/occupy-prishtina",
+	
+	"@type":[
+		"http://vocab.occupy.net/ows#Occupation",
+		"http://schema.org/Organization"
+	],	
+	"http://schema.org/foundingDate" : [
+		{
+			"@value":"2011-10-15T00:00:00-04:00",
+			"@type":"xsd:date"
+		}
+	],	
+	"http://vocab.occupy.net/ows#twitter_account" : [
+		{
+			"@value":"@OccupyPrishtina"
+		}
+	],	
+	"http://xmlns.com/foaf/0.1/mbox" : [
+		{
+			"@value":null
+		}
+	],	
+	"http://schema.org/telephone":[
+		{
+			"@value":null
+		}
+	],	
+	"http://xmlns.com/foaf/0.1/phone":[
+		{
+			"@value":null
+		}
+	],
+	"http://xmlns.com/foaf/0.1/name":[
+		{
+			"@value":"Occupy Prishtina"
+		}
+	],
+	"http://schema.org/name":[
+		{
+			"@value":"Occupy Prishtina"
+		}
+	],
+	"http://purl.org/dc/terms/date":[
+		{
+			"@value":"2012-02-12T21:18:08-05:00",
+			"@type":"xsd:dateTime"
+		}
+	],
+	"http://purl.org/dc/terms/created":[
+		{
+			"@value":"2012-02-12T21:18:08-05:00",
+			"@type":"xsd:dateTime"
+		}
+	],
+	"http://purl.org/dc/terms/modified":[
+		{
+			"@value":"2014-04-15T04:29:51-04:00",
+			"@type":"xsd:dateTime"
+		}
+	],
+	"http://rdfs.org/sioc/ns#num_replies":[
+		{
+			"@value":"2",
+			"@type":"xsd:integer"
+		}
+	]
+}
