@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 		return theString;
 	};
 	
-	String.prototype.toWin = function () { // Maybe shall only work on Linux...
+	String.prototype.toWinPath = function () { // Maybe shall only work on Linux...
 		return this.replace(new RegExp("/", "gm"), "\\");
 	};
 	
@@ -71,19 +71,17 @@ module.exports = function(grunt) {
 					formaStr('jsx -x {0} {1} {2}', env.jsxEXT, env.dir.jsxSrc, env.dir.jsSrc)			
 				].join(' && '),
 				
-				stdout: true,
-				
+				stdout: true,				
 				failOnError: true
 			},
 			
 			build_jsx_for_test : {
 			
 				command: [
-					formaStr("xcopy /E {0} {1}", env.dir.jsSrc.jsxSrc(), env.dir.jsSrc.toWin())
+					formaStr("xcopy /E {0} {1}", env.dir.jsSrc.toWinPath(), env.dir.jsSrc.toWinPath())
 				].join(' && '),
 				
-				stdout: true,
-				
+				stdout: true,				
 				failOnError: true				
 			},
 			
@@ -93,8 +91,7 @@ module.exports = function(grunt) {
 					formaStr('rm -rf {0}', env.dir.jsBuild) // Clean the old files
 				].join(' && '),
 				
-				stdout: true,
-				
+				stdout: true,				
 				failOnError: true
 			},
 			
@@ -104,8 +101,7 @@ module.exports = function(grunt) {
 					formaStr('rm -rf {0}/.module-cache/', env.dir.jsBuild)
 				].join(' && '),
 				
-				stdout: true,
-				
+				stdout: true,				
 				failOnError: true
 			}
 		}
