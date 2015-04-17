@@ -52,20 +52,16 @@ module.exports = function(grunt) {
 			
 			build : {
 				
-				options : {
-					
-					noLineComments : true,
-					
+				options : {					
+					noLineComments : true,					
 					outputStyle : "compressed"
 				}
 			},
 			
 			build_for_test : {
 				
-				options : {
-					
-					noLineComments : false,
-					
+				options : {					
+					noLineComments : false,					
 					outputStyle : "expanded"
 				}
 			}
