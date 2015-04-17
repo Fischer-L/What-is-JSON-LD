@@ -1,5 +1,6 @@
 @import "reset";
 @import "compass";
+@import "compass/css3/flexbox";
 
 // The same as unsemantic-grid-responsive-no-ie7.scss
 $unsemantic-ie7-support: false;
@@ -45,8 +46,41 @@ $font-color : #f0f0f0;
 
 	@extend .grid-container, .grid-parent;
 	
-	width : 70%;
-	max-width : 960px;
+	width : 60%;
+	max-width : 720px;
+}
+
+@mixin fs-flexbox ($prop) {
+
+	@for $i from 1 through 3 {
+		@include flexbox($prop, $version : $i);	
+	}
+}
+
+@mixin fs-flex-column-xCenter ($justify-content : center) {
+
+	@include fs-flexbox((
+				display : flex,
+				align-items : center,
+				flex-direction : column,
+				justify-content : $justify-content
+			 ));
+}
+
+@mixin fs-position ($pos, $top, $right, $btm, $left) {
+	position : $pos;
+	@if $top != null { top : $top };
+	@if $btm != null { bottom : $btm };
+	@if $left != null { left : $left };
+	@if $right != null { right : $right };
+}
+
+@mixin fs-pos-abs ($top, $right, $btm, $left) {
+	@include fs-position(absolute, $top, $right, $btm, $left);
+}
+
+@mixin fs-grid-100 {
+	@extend .grid-parent, .grid-100, .mobile-grid-100;
 }
 
 html {
@@ -56,6 +90,10 @@ html {
 	
 	background : #303030;
 	@include background(radial-gradient(circle, #5f5f5f, #303030));
+}
+
+body {
+	@include fs-flex-column-xCenter($justify-content : center);
 }
 
 h6 {
@@ -86,27 +124,37 @@ h1 {
 
 	@extend .grid-container;
 	
-	@include fs-master-container-width;
+	@include fs-master-container-width;	
+	@include fs-flex-column-xCenter;
 	
-	position : fixed;
-
+	height : 640px;
+	
+	position : relative;
+	
 	&-slide {
-
-		@extend .grid-parent, .grid-100;
 		
-		position : absolute;
+		@include fs-grid-100;
+		@include fs-flex-column-xCenter($justify-content : space-around);
 		
-		&-title {
-			
-			
-			
+		height : 640px;
+		
+		&-title {			
 		}
 		
-		&-content {		
+		&-content {
 		}
 		
-		&-footer {			
-			font-size : 0.9rem
+		&-footer {
+		
+			@include fs-grid-100;
+			@include fs-flex-column-xCenter;
+			@include fs-pos-abs(null, null, 0, 0);
+			
+			height : 3rem;
+			
+			&-count {
+				font-size : 0.9rem
+			}
 		}
 	}
 }

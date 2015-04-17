@@ -222,7 +222,7 @@ svg {
 }
 
 /* line 145, ../sass/partials/_unsemantic-vars.scss */
-.grid-container:before, .ppt:before, .grid-5:before, .mobile-grid-5:before, .grid-10:before, .mobile-grid-10:before, .grid-15:before, .mobile-grid-15:before, .grid-20:before, .mobile-grid-20:before, .grid-25:before, .mobile-grid-25:before, .grid-30:before, .mobile-grid-30:before, .grid-35:before, .mobile-grid-35:before, .grid-40:before, .mobile-grid-40:before, .grid-45:before, .mobile-grid-45:before, .grid-50:before, .mobile-grid-50:before, .grid-55:before, .mobile-grid-55:before, .grid-60:before, .mobile-grid-60:before, .grid-65:before, .mobile-grid-65:before, .grid-70:before, .mobile-grid-70:before, .grid-75:before, .mobile-grid-75:before, .grid-80:before, .mobile-grid-80:before, .grid-85:before, .mobile-grid-85:before, .grid-90:before, .mobile-grid-90:before, .grid-95:before, .mobile-grid-95:before, .grid-100:before, .ppt-slide:before, .mobile-grid-100:before, .grid-33:before, .mobile-grid-33:before, .grid-66:before, .mobile-grid-66:before, .clearfix:before,
+.grid-container:before, .ppt:before, .grid-5:before, .mobile-grid-5:before, .grid-10:before, .mobile-grid-10:before, .grid-15:before, .mobile-grid-15:before, .grid-20:before, .mobile-grid-20:before, .grid-25:before, .mobile-grid-25:before, .grid-30:before, .mobile-grid-30:before, .grid-35:before, .mobile-grid-35:before, .grid-40:before, .mobile-grid-40:before, .grid-45:before, .mobile-grid-45:before, .grid-50:before, .mobile-grid-50:before, .grid-55:before, .mobile-grid-55:before, .grid-60:before, .mobile-grid-60:before, .grid-65:before, .mobile-grid-65:before, .grid-70:before, .mobile-grid-70:before, .grid-75:before, .mobile-grid-75:before, .grid-80:before, .mobile-grid-80:before, .grid-85:before, .mobile-grid-85:before, .grid-90:before, .mobile-grid-90:before, .grid-95:before, .mobile-grid-95:before, .grid-100:before, .ppt-slide:before, .ppt-slide-footer:before, .mobile-grid-100:before, .grid-33:before, .mobile-grid-33:before, .grid-66:before, .mobile-grid-66:before, .clearfix:before,
 .grid-container:after,
 .ppt:after,
 .grid-5:after,
@@ -265,6 +265,7 @@ svg {
 .mobile-grid-95:after,
 .grid-100:after,
 .ppt-slide:after,
+.ppt-slide-footer:after,
 .mobile-grid-100:after,
 .grid-33:after,
 .mobile-grid-33:after,
@@ -282,7 +283,7 @@ svg {
 }
 
 /* line 157, ../sass/partials/_unsemantic-vars.scss */
-.grid-container:after, .ppt:after, .grid-5:after, .mobile-grid-5:after, .grid-10:after, .mobile-grid-10:after, .grid-15:after, .mobile-grid-15:after, .grid-20:after, .mobile-grid-20:after, .grid-25:after, .mobile-grid-25:after, .grid-30:after, .mobile-grid-30:after, .grid-35:after, .mobile-grid-35:after, .grid-40:after, .mobile-grid-40:after, .grid-45:after, .mobile-grid-45:after, .grid-50:after, .mobile-grid-50:after, .grid-55:after, .mobile-grid-55:after, .grid-60:after, .mobile-grid-60:after, .grid-65:after, .mobile-grid-65:after, .grid-70:after, .mobile-grid-70:after, .grid-75:after, .mobile-grid-75:after, .grid-80:after, .mobile-grid-80:after, .grid-85:after, .mobile-grid-85:after, .grid-90:after, .mobile-grid-90:after, .grid-95:after, .mobile-grid-95:after, .grid-100:after, .ppt-slide:after, .mobile-grid-100:after, .grid-33:after, .mobile-grid-33:after, .grid-66:after, .mobile-grid-66:after, .clearfix:after {
+.grid-container:after, .ppt:after, .grid-5:after, .mobile-grid-5:after, .grid-10:after, .mobile-grid-10:after, .grid-15:after, .mobile-grid-15:after, .grid-20:after, .mobile-grid-20:after, .grid-25:after, .mobile-grid-25:after, .grid-30:after, .mobile-grid-30:after, .grid-35:after, .mobile-grid-35:after, .grid-40:after, .mobile-grid-40:after, .grid-45:after, .mobile-grid-45:after, .grid-50:after, .mobile-grid-50:after, .grid-55:after, .mobile-grid-55:after, .grid-60:after, .mobile-grid-60:after, .grid-65:after, .mobile-grid-65:after, .grid-70:after, .mobile-grid-70:after, .grid-75:after, .mobile-grid-75:after, .grid-80:after, .mobile-grid-80:after, .grid-85:after, .mobile-grid-85:after, .grid-90:after, .mobile-grid-90:after, .grid-95:after, .mobile-grid-95:after, .grid-100:after, .ppt-slide:after, .ppt-slide-footer:after, .mobile-grid-100:after, .grid-33:after, .mobile-grid-33:after, .grid-66:after, .mobile-grid-66:after, .clearfix:after {
   clear: both;
 }
 
@@ -296,7 +297,7 @@ svg {
 }
 
 /* line 193, ../sass/partials/_unsemantic-vars.scss */
-.grid-5, .mobile-grid-5, .grid-10, .mobile-grid-10, .grid-15, .mobile-grid-15, .grid-20, .mobile-grid-20, .grid-25, .mobile-grid-25, .grid-30, .mobile-grid-30, .grid-35, .mobile-grid-35, .grid-40, .mobile-grid-40, .grid-45, .mobile-grid-45, .grid-50, .mobile-grid-50, .grid-55, .mobile-grid-55, .grid-60, .mobile-grid-60, .grid-65, .mobile-grid-65, .grid-70, .mobile-grid-70, .grid-75, .mobile-grid-75, .grid-80, .mobile-grid-80, .grid-85, .mobile-grid-85, .grid-90, .mobile-grid-90, .grid-95, .mobile-grid-95, .grid-100, .ppt-slide, .mobile-grid-100, .grid-33, .mobile-grid-33, .grid-66, .mobile-grid-66 {
+.grid-5, .mobile-grid-5, .grid-10, .mobile-grid-10, .grid-15, .mobile-grid-15, .grid-20, .mobile-grid-20, .grid-25, .mobile-grid-25, .grid-30, .mobile-grid-30, .grid-35, .mobile-grid-35, .grid-40, .mobile-grid-40, .grid-45, .mobile-grid-45, .grid-50, .mobile-grid-50, .grid-55, .mobile-grid-55, .grid-60, .mobile-grid-60, .grid-65, .mobile-grid-65, .grid-70, .mobile-grid-70, .grid-75, .mobile-grid-75, .grid-80, .mobile-grid-80, .grid-85, .mobile-grid-85, .grid-90, .mobile-grid-90, .grid-95, .mobile-grid-95, .grid-100, .ppt-slide, .ppt-slide-footer, .mobile-grid-100, .grid-33, .mobile-grid-33, .grid-66, .mobile-grid-66 {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -305,7 +306,7 @@ svg {
 }
 
 /* line 210, ../sass/partials/_unsemantic-vars.scss */
-.grid-parent, .ppt, .ppt-slide {
+.grid-parent, .ppt, .ppt-slide, .ppt-slide-footer {
   padding-left: 0;
   padding-right: 0;
 }
@@ -868,7 +869,7 @@ svg {
   }
 
   /* line 320, ../sass/partials/_unsemantic-vars.scss */
-  .mobile-grid-100 {
+  .mobile-grid-100, .ppt-slide, .ppt-slide-footer {
     clear: both;
     width: 100%;
   }
@@ -1431,12 +1432,12 @@ svg {
   }
 
   /* line 320, ../sass/partials/_unsemantic-vars.scss */
-  .grid-100, .ppt-slide {
+  .grid-100, .ppt-slide, .ppt-slide-footer {
     clear: both;
     width: 100%;
   }
 }
-/* line 52, ../sass/partials/_fs_base.scss */
+/* line 86, ../sass/partials/_fs_base.scss */
 html {
   font-size: 18px;
   color: #f0f0f0;
@@ -1447,38 +1448,123 @@ html {
   background: radial-gradient(circle, #5f5f5f, #303030);
 }
 
-/* line 61, ../sass/partials/_fs_base.scss */
+/* line 95, ../sass/partials/_fs_base.scss */
+body {
+  display: -moz-flex;
+  -moz-align-items: center;
+  -moz-flex-direction: column;
+  -moz-justify-content: center;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+  display: -ms-flex;
+  -ms-align-items: center;
+  -ms-flex-direction: column;
+  -ms-justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* line 99, ../sass/partials/_fs_base.scss */
 h6 {
   font-size: 1rem;
 }
 
-/* line 65, ../sass/partials/_fs_base.scss */
+/* line 103, ../sass/partials/_fs_base.scss */
 h5 {
   font-size: 1.5rem;
 }
 
-/* line 69, ../sass/partials/_fs_base.scss */
+/* line 107, ../sass/partials/_fs_base.scss */
 h4 {
   font-size: 2rem;
 }
 
-/* line 73, ../sass/partials/_fs_base.scss */
+/* line 111, ../sass/partials/_fs_base.scss */
 h3 {
   font-size: 2.5rem;
 }
 
-/* line 77, ../sass/partials/_fs_base.scss */
+/* line 115, ../sass/partials/_fs_base.scss */
 h2 {
   font-size: 3rem;
 }
 
-/* line 81, ../sass/partials/_fs_base.scss */
+/* line 119, ../sass/partials/_fs_base.scss */
 h1 {
   font-size: 4rem;
 }
 
-/* line 85, ../sass/partials/_fs_base.scss */
+/* line 123, ../sass/partials/_fs_base.scss */
 .ppt {
-  width: 70%;
-  max-width: 960px;
+  width: 60%;
+  max-width: 720px;
+  display: -moz-flex;
+  -moz-align-items: center;
+  -moz-flex-direction: column;
+  -moz-justify-content: center;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+  display: -ms-flex;
+  -ms-align-items: center;
+  -ms-flex-direction: column;
+  -ms-justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 640px;
+  position: relative;
+}
+/* line 134, ../sass/partials/_fs_base.scss */
+.ppt-slide {
+  display: -moz-flex;
+  -moz-align-items: center;
+  -moz-flex-direction: column;
+  -moz-justify-content: space-around;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: space-around;
+  display: -ms-flex;
+  -ms-align-items: center;
+  -ms-flex-direction: column;
+  -ms-justify-content: space-around;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 640px;
+}
+/* line 148, ../sass/partials/_fs_base.scss */
+.ppt-slide-footer {
+  display: -moz-flex;
+  -moz-align-items: center;
+  -moz-flex-direction: column;
+  -moz-justify-content: center;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+  display: -ms-flex;
+  -ms-align-items: center;
+  -ms-flex-direction: column;
+  -ms-justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3rem;
+}
+/* line 156, ../sass/partials/_fs_base.scss */
+.ppt-slide-footer-count {
+  font-size: 0.9rem;
 }
