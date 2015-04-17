@@ -1,6 +1,5 @@
 @import "reset";
 @import "compass";
-@import "compass/css3/flexbox";
 
 // The same as unsemantic-grid-responsive-no-ie7.scss
 $unsemantic-ie7-support: false;
@@ -120,7 +119,28 @@ h1 {
 	font-size : fs-get-h-tag-font-size(1);
 }
 
-.ppt {	
+.ppt {
+/*	== PPT module ==
+
+	<article class="ppt">
+		
+		// .ppt-prevSlide = The previous slide
+		// .ppt-nextSlide = The next slide
+		// Without pre or next = The current slide
+		<section class="ppt-slide [ppt-prevSlide | ppt-nextSlide]">
+			
+			<h3 class="ppt-slide-title"></h3>
+			
+			<p class="ppt-slide-content"></p>
+			
+			<aside class="ppt-slide-footer">
+				<span class="ppt-slide-footer-count"></span>
+			</aside>
+			
+		</section>
+	
+	</article>
+*/
 
 	@extend .grid-container;
 	
@@ -133,10 +153,13 @@ h1 {
 	
 	&-slide {
 		
-		@include fs-grid-100;
+		@include fs-grid-100;	
+		@include fs-pos-abs(0, null, null, 0);
 		@include fs-flex-column-xCenter($justify-content : space-around);
+		@include transition( (left, 1.5s, ease-out, 0s), (opacity, 1.5s, ease-out, 0s) );
 		
 		height : 640px;
+		opacity : 1;
 		
 		&-title {			
 		}
@@ -156,6 +179,16 @@ h1 {
 				font-size : 0.9rem
 			}
 		}
+	}
+	
+	&-prevSlide {	
+		@include fs-pos-abs(0, null, null, -50%);		
+		opacity : 0;
+	}
+	
+	&-nextSlide {	
+		@include fs-pos-abs(0, null, null, 50%);		
+		opacity : 0;
 	}
 }
 
