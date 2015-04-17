@@ -1500,6 +1500,27 @@ h1 {
 
 /* line 122, ../sass/partials/_fs_base.scss */
 .ppt {
+  /*	== PPT module ==
+  
+  	<article class="ppt">
+  		
+  		// .ppt-prevSlide = The previous slide
+  		// .ppt-nextSlide = The next slide
+  		// Without pre or next = The current slide
+  		<section class="ppt-slide [ppt-prevSlide | ppt-nextSlide]">
+  			
+  			<h3 class="ppt-slide-title"></h3>
+  			
+  			<p class="ppt-slide-content"></p>
+  			
+  			<aside class="ppt-slide-footer">
+  				<span class="ppt-slide-footer-count"></span>
+  			</aside>
+  			
+  		</section>
+  	
+  	</article>
+  */
   width: 60%;
   max-width: 720px;
   display: -moz-flex;
@@ -1521,8 +1542,11 @@ h1 {
   height: 640px;
   position: relative;
 }
-/* line 133, ../sass/partials/_fs_base.scss */
+/* line 154, ../sass/partials/_fs_base.scss */
 .ppt-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: -moz-flex;
   -moz-align-items: center;
   -moz-flex-direction: column;
@@ -1539,9 +1563,6 @@ h1 {
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
-  position: absolute;
-  top: 0;
-  left: 0;
   -moz-transition: left 1.5s ease-out 0s, opacity 1.5s ease-out 0s;
   -o-transition: left 1.5s ease-out 0s, opacity 1.5s ease-out 0s;
   -webkit-transition: left 1.5s ease-out, opacity 1.5s ease-out;
@@ -1550,7 +1571,7 @@ h1 {
   height: 640px;
   opacity: 1;
 }
-/* line 151, ../sass/partials/_fs_base.scss */
+/* line 170, ../sass/partials/_fs_base.scss */
 .ppt-slide-footer {
   display: -moz-flex;
   -moz-align-items: center;
@@ -1573,18 +1594,18 @@ h1 {
   left: 0;
   height: 3rem;
 }
-/* line 159, ../sass/partials/_fs_base.scss */
+/* line 178, ../sass/partials/_fs_base.scss */
 .ppt-slide-footer-count {
   font-size: 0.9rem;
 }
-/* line 165, ../sass/partials/_fs_base.scss */
+/* line 184, ../sass/partials/_fs_base.scss */
 .ppt-prevSlide {
   position: absolute;
   top: 0;
   left: -50%;
   opacity: 0;
 }
-/* line 170, ../sass/partials/_fs_base.scss */
+/* line 189, ../sass/partials/_fs_base.scss */
 .ppt-nextSlide {
   position: absolute;
   top: 0;

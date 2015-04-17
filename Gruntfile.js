@@ -18,15 +18,12 @@ module.exports = function(grunt) {
 		env.jsxEXT = ".jsx.js";
 		
 		env.dir = {}; {
-			env.dir.fileRoot = ".",
-			env.dir.localhost = "C:/AppServ/www/JSON-LD",
+			env.dir.fileRoot = ".";
+			env.dir.localhost = "C:/AppServ/www/JSON-LD";
 		
-			env.dir.jsSrc = env.dir.fileRoot + "/js",
-			env.dir.jsxSrc = env.dir.fileRoot + "/js/jsx",
-			env.dir.jsExternaLib = env.dir.fileRoot + "/js/externaLib"
-			
-			env.dir.style.css = env.dir.fileRoot + "style/css",
-			env.dir.style.sass = env.dir.fileRoot + "style/sass",
+			env.dir.jsSrc = env.dir.fileRoot + "/js";
+			env.dir.jsxSrc = env.dir.fileRoot + "/js/jsx";
+			env.dir.jsExternaLib = env.dir.fileRoot + "/js/externaLib";
 		};
 		
 		env.file = {
@@ -47,7 +44,7 @@ module.exports = function(grunt) {
 	// Project configuration.
 	grunt.initConfig({
 		
-		compass :｛
+		compass : {
 			
 			options : {				
 				config : env.file.compassConfig
@@ -78,19 +75,19 @@ module.exports = function(grunt) {
 		
 			options : {
 				separator : ";"
-			}
+			},
 			
 			build_lib : {
 				
 				files : [
-					{ dest : env.file.jsSrc.externaLib, src : [ env.file.jsSrc.react ] }
+					{ dest : env.file.jsSrc.externaLib, src : [ env.file.jsExternaLib.react ] }
 				]
 			},
 			
 			build_lib_for_test : {
 				
 				files : [
-					{ dest : env.file.jsSrc.externaLib, src : [ env.file.jsSrc.react, env.file.jsSrc.JSXTransformer ] }
+					{ dest : env.file.jsSrc.externaLib, src : [ env.file.jsExternaLib.react, env.file.jsExternaLib.JSXTransformer ] }
 				]
 			}
 		},
@@ -110,7 +107,7 @@ module.exports = function(grunt) {
 			build_jsx_for_test : {
 			
 				command: [
-					formaStr("xcopy /E {0} {1}", env.dir.jsSrc.toWinPath(), env.dir.jsSrc.toWinPath())
+					formaStr("xcopy /E {0} {1}", env.dir.jsxSrc.toWinPath(), env.dir.jsSrc.toWinPath())
 				].join(' && '),
 				
 				stdout: true,				
