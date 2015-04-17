@@ -24,6 +24,9 @@ module.exports = function(grunt) {
 			env.dir.jsSrc = env.dir.fileRoot + "/js",
 			env.dir.jsxSrc = env.dir.fileRoot + "/js/jsx",
 			env.dir.jsExternaLib = env.dir.fileRoot + "/js/externaLib"
+			
+			env.dir.style.css = env.dir.fileRoot + "style/css",
+			env.dir.style.sass = env.dir.fileRoot + "style/sass",
 		};
 		
 		env.file = {
@@ -31,16 +34,45 @@ module.exports = function(grunt) {
 			jsExternaLib : {		
 				react : env.dir.jsExternaLib + "/react.min.js",			
 				JSXTransformer : env.dir.jsExternaLib + "/JSXTransformer.js"
-			}
+			},
 			
 			jsSrc : {
 				externaLib : env.dir.jsSrc + "/externaLib.js"
-			}
+			},
+			
+			compassConfig : env.dir.fileRoot + "/config.rb"
 		};	
 	};
 	
 	// Project configuration.
 	grunt.initConfig({
+		
+		compass :｛
+			
+			options : {				
+				config : env.file.compassConfig
+			},
+			
+			build : {
+				
+				options : {
+					
+					noLineComments : true,
+					
+					outputStyle : "compressed"
+				}
+			},
+			
+			build_for_test : {
+				
+				options : {
+					
+					noLineComments : false,
+					
+					outputStyle : "expanded"
+				}
+			}
+		},
 		
 		concat : {
 		
@@ -111,8 +143,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-shell');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-compass');
 	
 	// Tasks
-	grunt.registerTask('default', [ "shell:set_up", "shell:build_jsx_for_test", "concat:build_lib_for_test", "shell:clean_up" ]);
-	grunt.registerTask('release', [ "shell:set_up", "shell:build_jsx", "concat:build_lib", "shell:clean_up" ]);
+	grunt.registerTask('default', [ 
+		"shell:set_up", "shell:build_jsx_for_test", "concat:build_lib_for_test", "compass:build_for_test", "shell:clean_up"
+	]);
+	grunt.registerTask('release', [
+		"shell:set_up", "shell:build_jsx", "concat:build_lib", "compass:build", "shell:clean_up"
+	]);
 };
