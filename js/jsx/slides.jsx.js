@@ -49,7 +49,7 @@
 								
 								<h3 className="ppt-slide-title">{title}</h3>
 								
-								<p className="ppt-slide-content">{content}</p>
+								<p className="ppt-slide-content"></p>
 								
 								<aside className="ppt-slide-footer">
 									<span className="ppt-slide-footer-count">{count}</span>
@@ -95,10 +95,18 @@
 				content : <div>This is the 3rd slide</div>
 			});
 		}
+	
+	var i = 0,
 		
-	for (var i = 0; i < slideData.length; i++) {
+		com,
 		
-		ppt.addSlide(React.createElement(
+		slides = [],
+		
+		div = document.createElement("div");
+	
+	for (; i < slideData.length; i++) {
+		
+		com = React.render(React.createElement(
 		
 			mkPPTSlideClass(),
 			
@@ -109,7 +117,11 @@
 					slideCount : (i == 0) ? null : i
 				}
 			}
-		));
+		), div);
+		
+		slides.push(com.getDOMNode().cloneNode(true));
 	}
+	
+	ppt.addSlide(slides);
 	
 }(window, React));

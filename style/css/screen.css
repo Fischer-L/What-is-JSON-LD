@@ -1466,39 +1466,40 @@ body {
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  overflow-x: hidden;
 }
 
-/* line 98, ../sass/partials/_fs_base.scss */
+/* line 100, ../sass/partials/_fs_base.scss */
 h6 {
   font-size: 1rem;
 }
 
-/* line 102, ../sass/partials/_fs_base.scss */
+/* line 104, ../sass/partials/_fs_base.scss */
 h5 {
   font-size: 1.5rem;
 }
 
-/* line 106, ../sass/partials/_fs_base.scss */
+/* line 108, ../sass/partials/_fs_base.scss */
 h4 {
   font-size: 2rem;
 }
 
-/* line 110, ../sass/partials/_fs_base.scss */
+/* line 112, ../sass/partials/_fs_base.scss */
 h3 {
   font-size: 2.5rem;
 }
 
-/* line 114, ../sass/partials/_fs_base.scss */
+/* line 116, ../sass/partials/_fs_base.scss */
 h2 {
   font-size: 3rem;
 }
 
-/* line 118, ../sass/partials/_fs_base.scss */
+/* line 120, ../sass/partials/_fs_base.scss */
 h1 {
   font-size: 4rem;
 }
 
-/* line 122, ../sass/partials/_fs_base.scss */
+/* line 124, ../sass/partials/_fs_base.scss */
 .ppt {
   /*	== PPT module ==
   
@@ -1542,11 +1543,8 @@ h1 {
   height: 640px;
   position: relative;
 }
-/* line 154, ../sass/partials/_fs_base.scss */
+/* line 156, ../sass/partials/_fs_base.scss */
 .ppt-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
   display: -moz-flex;
   -moz-align-items: center;
   -moz-flex-direction: column;
@@ -1563,16 +1561,19 @@ h1 {
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
-  -moz-transition: left 1.5s ease-out 0s, opacity 1.5s ease-out 0s;
-  -o-transition: left 1.5s ease-out 0s, opacity 1.5s ease-out 0s;
-  -webkit-transition: left 1.5s ease-out, opacity 1.5s ease-out;
+  -moz-transition: left 1s ease-out 0s, opacity 1s ease-out 0s;
+  -o-transition: left 1s ease-out 0s, opacity 1s ease-out 0s;
+  -webkit-transition: left 1s ease-out, opacity 1s ease-out;
   -webkit-transition-delay: 0s, 0s;
-  transition: left 1.5s ease-out 0s, opacity 1.5s ease-out 0s;
+  transition: left 1s ease-out 0s, opacity 1s ease-out 0s;
   height: 640px;
-  opacity: 1;
-  display: none;
 }
-/* line 171, ../sass/partials/_fs_base.scss */
+/* line 167, ../sass/partials/_fs_base.scss */
+.ppt-slide-content {
+  margin-top: -50px;
+  font-size: 1.5rem;
+}
+/* line 172, ../sass/partials/_fs_base.scss */
 .ppt-slide-footer {
   display: -moz-flex;
   -moz-align-items: center;
@@ -1595,25 +1596,28 @@ h1 {
   left: 0;
   height: 3rem;
 }
-/* line 179, ../sass/partials/_fs_base.scss */
+/* line 180, ../sass/partials/_fs_base.scss */
 .ppt-slide-footer-count {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
-/* line 185, ../sass/partials/_fs_base.scss */
+/* line 186, ../sass/partials/_fs_base.scss */
 .ppt-prevSlide {
   position: absolute;
   top: 0;
   left: -50%;
   opacity: 0;
 }
-/* line 190, ../sass/partials/_fs_base.scss */
+/* line 191, ../sass/partials/_fs_base.scss */
 .ppt-nextSlide {
   position: absolute;
   top: 0;
   left: 50%;
   opacity: 0;
 }
-/* line 195, ../sass/partials/_fs_base.scss */
+/* line 196, ../sass/partials/_fs_base.scss */
 .ppt-currentSlide {
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
 }

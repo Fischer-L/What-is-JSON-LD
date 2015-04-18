@@ -93,6 +93,8 @@ html {
 
 body {
 	@include fs-flex-column-xCenter($justify-content : center);
+	
+	overflow-x : hidden;
 }
 
 h6 {
@@ -153,19 +155,18 @@ h1 {
 	
 	&-slide {
 		
-		@include fs-grid-100;	
-		@include fs-pos-abs(0, null, null, 0);
+		@include fs-grid-100;
 		@include fs-flex-column-xCenter($justify-content : space-around);
-		@include transition( (left, 1.5s, ease-out, 0s), (opacity, 1.5s, ease-out, 0s) );
+		@include transition( (left, 1s, ease-out, 0s), (opacity, 1s, ease-out, 0s) );
 		
 		height : 640px;
-		opacity : 1;
-		display : none;
 		
 		&-title {			
 		}
 		
 		&-content {
+			margin-top: -50px;
+			font-size : 1.5rem;
 		}
 		
 		&-footer {
@@ -177,7 +178,7 @@ h1 {
 			height : 3rem;
 			
 			&-count {
-				font-size : 0.9rem
+				font-size : 1rem
 			}
 		}
 	}
@@ -193,7 +194,8 @@ h1 {
 	}
 	
 	&-currentSlide {
-		display : block;
+		@include fs-pos-abs(0, null, null, 0);
+		opacity : 1;
 	}
 }
 

@@ -20,7 +20,7 @@
 				React state:
 					<STR> status = the status of this slide, say, being viewed, previous slide or next slide. Refer to the CSS classNames for the valid value.
 			*/
-			var PPT_Slide = React.createClass({
+			var PPT_Slide = React.createClass({displayName: "PPT_Slide",
 				
 					getInitialState : function () {
 						
@@ -45,17 +45,17 @@
 						count = pptility.isNum(this.props._render.slideCount) ? this.props._render.slideCount : "";
 												
 						return (
-							<section className={cls}>
+							React.createElement("section", {className: cls}, 
 								
-								<h3 className="ppt-slide-title">{title}</h3>
+								React.createElement("h3", {className: "ppt-slide-title"}, title), 
 								
-								<p className="ppt-slide-content">{content}</p>
+								React.createElement("p", {className: "ppt-slide-content"}), 
 								
-								<aside className="ppt-slide-footer">
-									<span className="ppt-slide-footer-count">{count}</span>
-								</aside>
+								React.createElement("aside", {className: "ppt-slide-footer"}, 
+									React.createElement("span", {className: "ppt-slide-footer-count"}, count)
+								)
 								
-							</section>
+							)
 						);
 					},
 					
@@ -78,27 +78,35 @@
 			
 				title : "1st",
 				
-				content : <div>This is the 1st slide</div>
+				content : React.createElement("div", null, "This is the 1st slide")
 			});
 	
 			slideData.push({
 			
 				title : "2nd",
 				
-				content : <div>This is the 2nd slide</div>
+				content : React.createElement("div", null, "This is the 2nd slide")
 			});
 	
 			slideData.push({
 			
 				title : "3rd",
 				
-				content : <div>This is the 3rd slide</div>
+				content : React.createElement("div", null, "This is the 3rd slide")
 			});
 		}
+	
+	var i = 0,
 		
-	for (var i = 0; i < slideData.length; i++) {
+		com,
 		
-		ppt.addSlide(React.createElement(
+		slides = [],
+		
+		div = document.createElement("div");
+	
+	for (; i < slideData.length; i++) {
+		
+		com = React.render(React.createElement(
 		
 			mkPPTSlideClass(),
 			
@@ -109,7 +117,11 @@
 					slideCount : (i == 0) ? null : i
 				}
 			}
-		));
+		), div);
+		
+		slides.push(com.getDOMNode().cloneNode(true));
 	}
+	
+	ppt.addSlide(slides);
 	
 }(window, React));

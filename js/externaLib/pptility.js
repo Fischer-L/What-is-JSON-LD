@@ -107,9 +107,11 @@
 				<FN> The handle to the event handler (Use this for removing event).
 		*/
 		addEvt : function addEvt(elem, evt, eHandle) {
-
+			
+			var normalizeEvt = this.normalizeEvt;
+			
 			function proxyHandle(e) {
-				return eHandle.call(elem, normalizeEvt(e)); // Utilize the Warehouse.utilities.browserCompat.normalizeEvt
+				return eHandle.call(elem, normalizeEvt(e));
 			};
 			
 			if (elem.addEventListener) {
@@ -308,7 +310,7 @@
 				@ NG: false
 		*/
 		removeClass : function removeClass(elem, classes) {
-			var removedClasses = [];
+			var removedClasses = [],
 				thisClass = " " + elem.className + " ";
 			
 			classes = this.isStr(classes) ? classes.split(" ") : classes;
