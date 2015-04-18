@@ -218,11 +218,83 @@ var notes = {
 					obj["@type"] === obj.type
 			},
 			
-			Language : // TODO : 5:58 @ https://www.youtube.com/watch?v=UmvWk_TQ30A
+			* Language : {
+				
+				* Method-1 : {
+					
+					name : {
+						
+						"@value" : "Tanaka",
+						
+						"@language" : "jp" // BCP47 :http://tools.ietf.org/html/bcp47
+					}
+				},
+				
+				* Method-2 : {
+					
+					"@context" : {
+						
+						nameJP : {
+							
+							"@id" : "http://schema.org/name",
+							
+							"@language" : "jp"
+						}
+					},
+					
+					nameJP : "Tanaka"
+				}
+			}
+		},
+		
+		* Important Format algo : {
+		
+			* Expansion & Compaction
+			
+			* Expansion is "name" -> "http://schema.org/name"
+			
+			* Compaction is "http://schema.org/name" --> "name"
+			
+			* Example-1 : {
+			
+				var comp = {
+						"@context" : "http://schema.org/",
+						name : "Jeremy Lin"
+					};
+				
+				Expand comp then we get (The reverse process is called Compaction)
+				
+				var exp = {
+						"http://schema.org/name" : "Jeremy Lin"
+					};
+			},
+			
+			* Example-2 : {
+				
+				
+				
+			}
+		},
+		
+		* Compact IRI : {
+		
+			example = {
+				"@context" : {
+					foaf : "http://xmlns.com/foaf/0.1/"
+				},
+				
+				"@type": "foaf:Person",				
+				// "@type" : "http://xmlns.com/foaf/0.1/Person"
+				
+				 "foaf:name" : "Dave Longley"
+				// "http://xmlns.com/foaf/0.1/name" : "Dave Longley"
+			};
 		}
 	},
 	
 	Ref : {
+	
+		"http://www.w3.org/TR/json-ld/",
 	
 		"http://www.slideshare.net/gkellogg1/json-for-linked-data?next_slideshow=1",
 		
