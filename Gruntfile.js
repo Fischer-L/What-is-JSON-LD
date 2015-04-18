@@ -30,7 +30,9 @@ module.exports = function(grunt) {
 
 			jsExternaLib : {		
 				react : env.dir.jsExternaLib + "/react.min.js",			
-				JSXTransformer : env.dir.jsExternaLib + "/JSXTransformer.js"
+				JSXTransformer : env.dir.jsExternaLib + "/JSXTransformer.js",
+				
+				pptility : env.dir.jsExternaLib + "/pptility.js"
 			},
 			
 			jsSrc : {
@@ -76,14 +78,14 @@ module.exports = function(grunt) {
 			build_lib : {
 				
 				files : [
-					{ dest : env.file.jsSrc.externaLib, src : [ env.file.jsExternaLib.react ] }
+					{ dest : env.file.jsSrc.externaLib, src : [ env.file.jsExternaLib.pptility, env.file.jsExternaLib.react ] }
 				]
 			},
 			
 			build_lib_for_test : {
 				
 				files : [
-					{ dest : env.file.jsSrc.externaLib, src : [ env.file.jsExternaLib.react, env.file.jsExternaLib.JSXTransformer ] }
+					{ dest : env.file.jsSrc.externaLib, src : [ env.file.jsExternaLib.pptility, env.file.jsExternaLib.react, env.file.jsExternaLib.JSXTransformer ] }
 				]
 			}
 		},
@@ -134,7 +136,6 @@ module.exports = function(grunt) {
 
 	// Load the plugins
 	grunt.loadNpmTasks('grunt-shell');
-	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	
