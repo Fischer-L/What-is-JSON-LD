@@ -28,8 +28,9 @@ module.exports = function(grunt) {
 		
 		env.file = {
 
-			jsExternaLib : {		
-				react : env.dir.jsExternaLib + "/react.min.js",			
+			jsExternaLib : {
+				react : env.dir.jsExternaLib + "/react.js",	
+				reactMin : env.dir.jsExternaLib + "/react.min.js",			
 				JSXTransformer : env.dir.jsExternaLib + "/JSXTransformer.js",
 				
 				pptility : env.dir.jsExternaLib + "/pptility.js"
@@ -78,7 +79,7 @@ module.exports = function(grunt) {
 			build_lib : {
 				
 				files : [
-					{ dest : env.file.jsSrc.externaLib, src : [ env.file.jsExternaLib.pptility, env.file.jsExternaLib.react ] }
+					{ dest : env.file.jsSrc.externaLib, src : [ env.file.jsExternaLib.pptility, env.file.jsExternaLib.reactMin ] }
 				]
 			},
 			
@@ -95,7 +96,7 @@ module.exports = function(grunt) {
 			build_jsx: {
 			
 				command: [
-					formaStr('jsx -x {0} {1} {2}', env.jsxEXT, env.dir.jsxSrc, env.dir.jsSrc)			
+					formaStr('jsx -x js {0} {1}', env.dir.jsxSrc, env.dir.jsSrc)			
 				].join(' && '),
 				
 				stdout: true,				
@@ -115,7 +116,7 @@ module.exports = function(grunt) {
 			set_up : {
 			
 				command: [
-					formaStr('rm -rf {0}', env.dir.jsBuild) // Clean the old files
+					formaStr('rm -rf {0}', env.dir.jsSrc + "/*" + env.jsxEXT) // Clean the old files
 				].join(' && '),
 				
 				stdout: true,				
@@ -125,7 +126,7 @@ module.exports = function(grunt) {
 			clean_up : {
 			
 				command: [
-					formaStr('rm -rf {0}/.module-cache/', env.dir.jsBuild)
+					formaStr('rm -rf {0}/.module-cache/', env.dir.jsSrc)
 				].join(' && '),
 				
 				stdout: true,				

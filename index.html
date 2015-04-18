@@ -12,7 +12,7 @@
 <body>
 	
 	<article class="ppt">
-		
+		<!--
 		<section class="ppt-slide">
 			
 			<h3 class="ppt-slide-title">
@@ -28,8 +28,26 @@
 			</aside>
 			
 		</section>
-	
+		-->
 	</article>
+	
+	<script src="./js/externaLib.js"></script>
+	<script src="./js/ppt.js"></script>
+	<script>	
+		var dbg = ppt.masterDBG.newLocDBG(true),
+		
+			s = document.createElement("script");			
+		
+		s.src = "./js/slides.jsx.js";
+		
+		s.type = dbg.isDBG() ? "text/jsx" : "text/javascript";
+	
+		s.onload = function () {
+			ppt.play();
+		}
+		
+		document.body.appendChild(s);
+	</script>
 	
 </body>
 

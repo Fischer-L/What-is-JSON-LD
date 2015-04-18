@@ -138,10 +138,20 @@
 				@ OK: true
 				@ NG: false
 		*/
-		isStr :function isStr(target) {
+		isStr : function isStr(target) {
 			return (typeof target == "string");
 		},
 
+		/*	Arg:
+				<*> target = the target to test
+			Return:
+				@ OK: true
+				@ NG: false
+		*/
+		isNum : function isNum(target) {
+			return (typeof target == "number");
+		},
+		
 		/*	Arg:
 				<*> target = the target to test
 			Return:
@@ -219,7 +229,7 @@
 			}
 			
 			return theString;
-		};
+		},
 
 		/*	Func:
 				Find out if the specified CSS classes exist in the target element's className attribute
@@ -254,7 +264,7 @@
 				}
 			}
 			return has;
-		}
+		},
 
 		/*	Func:
 				Add some CSS classes into one element's className attribute
@@ -286,7 +296,7 @@
 			} else {
 				return false;
 			}
-		}
+		},
 
 		/*	Func:
 				Remove some CSS classes from one element's className attribute
@@ -357,17 +367,17 @@
 				}
 			}
 					_cls_Local_DBG.prototype.log = function () {			
-						if (this.isDBG()) return window.log.apply(window, Array.prototype.slice(arguments));
+						if (this.isDBG()) return console.log.apply(console, Array.prototype.slice.apply(arguments));
 					}
 					
 					_cls_Local_DBG.prototype.warn = function () {			
-						if (this.isDBG()) return window.warn.apply(window, Array.prototype.slice(arguments));
+						if (this.isDBG()) return console.warn.apply(console, Array.prototype.slice.apply(arguments));
 					}
 					
 					_cls_Local_DBG.prototype.error = function () {			
-						if (this.isDBG()) return window.error.apply(window, Array.prototype.slice(arguments));
+						if (this.isDBG()) return console.error.apply(console, Array.prototype.slice.apply(arguments));
 					}
-			
+						
 			var _flag_masterDBG;
 			
 			/*	Arg:

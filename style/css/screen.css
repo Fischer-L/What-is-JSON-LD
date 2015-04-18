@@ -1506,8 +1506,8 @@ h1 {
   		
   		// .ppt-prevSlide = The previous slide
   		// .ppt-nextSlide = The next slide
-  		// Without pre or next = The current slide
-  		<section class="ppt-slide [ppt-prevSlide | ppt-nextSlide]">
+  		// .ppt-currentSlide = the current slide being viewed
+  		<section class="ppt-slide [ppt-prevSlide | ppt-nextSlide | ppt-currentSlide]">
   			
   			<h3 class="ppt-slide-title"></h3>
   			
@@ -1570,8 +1570,9 @@ h1 {
   transition: left 1.5s ease-out 0s, opacity 1.5s ease-out 0s;
   height: 640px;
   opacity: 1;
+  display: none;
 }
-/* line 170, ../sass/partials/_fs_base.scss */
+/* line 171, ../sass/partials/_fs_base.scss */
 .ppt-slide-footer {
   display: -moz-flex;
   -moz-align-items: center;
@@ -1594,21 +1595,25 @@ h1 {
   left: 0;
   height: 3rem;
 }
-/* line 178, ../sass/partials/_fs_base.scss */
+/* line 179, ../sass/partials/_fs_base.scss */
 .ppt-slide-footer-count {
   font-size: 0.9rem;
 }
-/* line 184, ../sass/partials/_fs_base.scss */
+/* line 185, ../sass/partials/_fs_base.scss */
 .ppt-prevSlide {
   position: absolute;
   top: 0;
   left: -50%;
   opacity: 0;
 }
-/* line 189, ../sass/partials/_fs_base.scss */
+/* line 190, ../sass/partials/_fs_base.scss */
 .ppt-nextSlide {
   position: absolute;
   top: 0;
   left: 50%;
   opacity: 0;
+}
+/* line 195, ../sass/partials/_fs_base.scss */
+.ppt-currentSlide {
+  display: block;
 }
