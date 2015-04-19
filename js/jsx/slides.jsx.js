@@ -10,8 +10,7 @@
 		
 		env_classNames = ppt.CONST.classNames,
 		
-		formatHTML = function (v) {	
-		
+		formatHTML = function (v) {		
 			return React.renderToStaticMarkup(v);
 		};
 	
@@ -103,7 +102,7 @@
 						<code>
 							{ formatHTML(<span>Frank Darabont</span>) }
 							<br/>
-							{ formatHTML(<span>The Shawshank Redemption</span>) }
+							{ formatHTML(<a href="xyz.html">The Shawshank Redemption</a>) }
 						</code>
 					</div>
 				)
@@ -118,13 +117,13 @@
 						<code>
 							{ formatHTML(<span id="director">Frank Darabont</span>) }
 							<br/>
-							{ formatHTML(<span id="movie">The Shawshank Redemption</span>) }
+							{ formatHTML(<a id="movie" href="xyz.html">The Shawshank Redemption</a>) }
 						</code>
 					</div>
 				)
 			});
 	
-			env_dbg.dPoint = slideData.push({
+			slideData.push({
 			
 				title : "And what are these ?",
 				
@@ -164,8 +163,176 @@
 					</div>
 				)
 			});
+
+			slideData.push({
+			
+				title : "The current web",
+				
+				content : (
+					<div className="lyt-centerContent">
+					
+						<p className="lyt-margin-top-20x lyt-margin-bottom-10x">
+							Follow <span className="sty-highlight">LINKs</span> in the HTML
+						</p>
+						
+						<code className="sty-font-italic">
+							{ formatHTML(<span>Frank Darabont</span>) }
+							<br/>
+							{ formatHTML(<a href="xyz.html">The Shawshank Redemption</a>) }
+						</code>
+						
+						<p className="lyt-margin-top-40x lyt-margin-bottom-10x">
+							Exchange data thru <span className="sty-highlight">JSON</span>
+						</p>
+						
+						<code className="sty-font-italic">
+							&#123;<br/>
+								"name" : "Jeremy Lin",<br/>
+								"tel" : "123-456-789"<br/>
+							&#125;
+						</code>
+						
+					</div>
+				)
+			});
+
+			slideData.push({
+			
+				title : "Ambiguity",
+				
+				content : (
+					<div className="lyt-centerContent">
+						<code className="lyt-margin-bottom-20x">
+							&#123;<br/>
+								<span className="sty-highlight">name : "Jeremy Lin"</span>, page : "http://linsanity.com"
+							<br/>&#125;
+						</code>
+						<code>
+							&#123;<br/>
+								<span className="sty-highlight">name : "Linsanity"</span>, page : "http://linsanity.com"
+							<br/>&#125;
+						</code>
+					</div>
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Difficult for computer",
+				
+				content : (
+					<div className="lyt-centerContent lyt-margin-top-20x">
+						<img src="./img/sad_computer.png" />
+					</div>
+				)
+			});
+
+			slideData.push({
+			
+				title : "Computer loves this",
+				
+				content : (
+					<div className="lyt-centerContent lyt-margin-top-10x">
+						<code>
+							&#123;<br/>
+								<span className="sty-highlight">"https://schema.org/name"</span> : "Linsanity",
+								<br/>
+								<span className="sty-highlight">"https://schema.org/WebPage"</span> : "http://linsanity.com"
+							<br/>&#125;
+						</code>
+					</div>
+				)
+			});
+
+			slideData.push({
+			
+				title : "Computer friendly language !?",
+				
+				content : (
+					<div className="lyt-centerContent lyt-margin-top-20x">
+						<img src="./img/help_computer.jpg" />
+					</div>
+				)
+			});
+
+			slideData.push({
+			
+				title : "RDF",
+				
+				content : (
+					<div className="lyt-centerContent lyt-margin-top-20x">
+						<a href="http://www.w3.org/RDF/">Resource Description Framework</a>
+					</div>
+				)
+			});
+
+			slideData.push({
+			
+				title : "How to express ?",
+				
+				content : (
+					<div className="lyt-centerContent lyt-margin-top-20x">
+						<img src="./img/graph_for_human.png" />
+					</div>
+				)
+			});
+
+			slideData.push({
+			
+				title : "Graph",
+				
+				content : (
+					<div className="lyt-centerContent lyt-margin-top-20x">
+						<img src="./img/graph_for_computer.png" />
+					</div>
+				)
+			});
+			
+//env_dbg.dPoint=
+
+			//slideData.push({
+			//
+			//	title : "RDF statement",
+			//	
+			//	content : (
+			//		<div className="lyt-centerContent lyt-margin-top-20x">
+			//		
+			//			<p className="lyt-margin-bottom-20x">
+			//				Subject - Predicate - Object
+			//			</p>
+			//		
+			//			<p>
+			//				"Lin plays basketball"
+			//			</p>
+			//			
+			//		</div>
+			//	)
+			//});
+
+			//slideData.push({
+			//
+			//	title : "Structured data",
+			//	
+			//	content : (
+			//		<div className="grid-parent grid-100 mobile-grid-100 lyt-margin-top-20x">
+			//			
+			//			<div className="grid-50 mobile-grid-50">
+			//				
+			//				<img style="width : 80%" src="./img/schema_logo.jpg" />
+			//				
+			//			</div>
+			//			
+			//			<div className="grid-50 mobile-grid-50">
+			//				
+			//				<img style="width : 80%" src="./img/foaf_logo.png" />
+			//				
+			//			</div>
+			//			
+			//		</div>
+			//	)
+			//});
 		}
-	
+		
 	var i = env_dbg.isDBG() ? env_dbg.dPoint - 1 : 0,
 		
 		com,
