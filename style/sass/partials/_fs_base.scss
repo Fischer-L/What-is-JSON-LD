@@ -236,6 +236,11 @@ h1 {
 		@include fs-flex-column-xCenter;
 	}
 	
+	&-centerBlock {
+		margin : 0 auto;
+		display : block;
+	}
+	
 	@for $i from 1 through 40 { // Create &-margin-???-1x/2x/3x...
 	
 		&-margin-top-#{$i}x {			
@@ -252,6 +257,28 @@ h1 {
 	
 		&-margin-left-#{$i}x {			
 			margin-left : $i * $margin-base-unit;
+		}
+	}
+	
+	@media (max-width: $media-mobile-max) {
+		
+		@for $i from 1 through 40 { // Create &-mobile-margin-???-1x/2x/3x...
+		
+			&-mobile-margin-top-#{$i}x {			
+				margin-top : $i * $margin-base-unit;
+			}
+		
+			&-mobile-margin-right-#{$i}x {			
+				margin-right : $i * $margin-base-unit;
+			}
+		
+			&-mobile-margin-bottom-#{$i}x {			
+				margin-bottom : $i * $margin-base-unit;
+			}
+		
+			&-mobile-margin-left-#{$i}x {			
+				margin-left : $i * $margin-base-unit;
+			}
 		}
 	}
 }

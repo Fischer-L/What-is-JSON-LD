@@ -10,8 +10,7 @@
 		
 		env_classNames = ppt.CONST.classNames,
 		
-		formatHTML = function (v) {	
-		
+		formatHTML = function (v) {		
 			return React.renderToStaticMarkup(v);
 		};
 	
@@ -25,7 +24,7 @@
 				React state:
 					<STR> status = the status of this slide, say, being viewed, previous slide or next slide. Refer to the CSS classNames for the valid value.
 			*/
-			var PPT_Slide = React.createClass({
+			var PPT_Slide = React.createClass({displayName: "PPT_Slide",
 				
 					getInitialState : function () {
 						
@@ -50,17 +49,17 @@
 						count = pptility.isNum(this.props._render.slideCount) ? this.props._render.slideCount : "";
 												
 						return (
-							<section className={cls}>
+							React.createElement("section", {className: cls}, 
 								
-								<h3 className="ppt-slide-title">{title}</h3>
+								React.createElement("h3", {className: "ppt-slide-title"}, title), 
 								
-								<p className="ppt-slide-content"></p>
+								React.createElement("p", {className: "ppt-slide-content"}), 
 								
-								<aside className="ppt-slide-footer">
-									<span className="ppt-slide-footer-count">{count}</span>
-								</aside>
+								React.createElement("aside", {className: "ppt-slide-footer"}, 
+									React.createElement("span", {className: "ppt-slide-footer-count"}, count)
+								)
 								
-							</section>
+							)
 						);
 					},
 					
@@ -85,12 +84,12 @@
 				title : "JSON-LD",
 				
 				content : (
-					<div className="lyt-centerContent">						
-						<div className="lyt-margin-bottom-20x">
-							Fischer @ <a href="https://github.com/Fischer-L">https://github.com/Fischer-L</a>
-						</div>					
-						2015.04
-					</div>
+					React.createElement("div", {className: "lyt-centerContent"}, 						
+						React.createElement("div", {className: "lyt-margin-bottom-20x"}, 
+							"Fischer @ ", React.createElement("a", {href: "https://github.com/Fischer-L"}, "https://github.com/Fischer-L")
+						), 
+						"2015.04"
+					)
 				)
 			});
 	
@@ -99,13 +98,13 @@
 				title : "What is this ?",
 				
 				content : (
-					<div>
-						<code>
-							{ formatHTML(<span>Frank Darabont</span>) }
-							<br/>
-							{ formatHTML(<a href="xyz.html">The Shawshank Redemption</a>) }
-						</code>
-					</div>
+					React.createElement("div", null, 
+						React.createElement("code", null, 
+							 formatHTML(React.createElement("span", null, "Frank Darabont")), 
+							React.createElement("br", null), 
+							 formatHTML(React.createElement("a", {href: "xyz.html"}, "The Shawshank Redemption")) 
+						)
+					)
 				)
 			});
 	
@@ -114,13 +113,13 @@
 				title : "This is",
 				
 				content : (
-					<div>
-						<code>
-							{ formatHTML(<span id="director">Frank Darabont</span>) }
-							<br/>
-							{ formatHTML(<a id="movie" href="xyz.html">The Shawshank Redemption</a>) }
-						</code>
-					</div>
+					React.createElement("div", null, 
+						React.createElement("code", null, 
+							 formatHTML(React.createElement("span", {id: "director"}, "Frank Darabont")), 
+							React.createElement("br", null), 
+							 formatHTML(React.createElement("a", {id: "movie", href: "xyz.html"}, "The Shawshank Redemption")) 
+						)
+					)
 				)
 			});
 	
@@ -129,23 +128,23 @@
 				title : "And what are these ?",
 				
 				content : (
-					<div className="grid-parent grid-100">
+					React.createElement("div", {className: "grid-parent grid-100"}, 
 					
-						<code className="grid-50">
-							&#123;<br/>
-								"name" : "Jeremy Lin",<br/>
-								"phone" : "123-456-789"<br/>
-							&#125;
-						</code>
+						React.createElement("code", {className: "grid-50"}, 
+							"{", React.createElement("br", null), 
+								"\"name\" : \"Jeremy Lin\",", React.createElement("br", null), 
+								"\"phone\" : \"123-456-789\"", React.createElement("br", null), 
+							"}"
+						), 
 						
-						<code className="grid-50">
-							&#123;<br/>
-								"name" : "Jeremy Lin",<br/>
-								"tel" : "123-456-789"<br/>
-							&#125;
-						</code>
+						React.createElement("code", {className: "grid-50"}, 
+							"{", React.createElement("br", null), 
+								"\"name\" : \"Jeremy Lin\",", React.createElement("br", null), 
+								"\"tel\" : \"123-456-789\"", React.createElement("br", null), 
+							"}"
+						)
 						
-					</div>
+					)
 				)
 			});
 	
@@ -154,14 +153,14 @@
 				title : "These are",
 				
 				content : (
-					<div>					
-						<code>
-							&#123;<br/>
-								"name" : "Jeremy Lin",<br/>
-								"phone" / "tel" : "123-456-789"<br/>
-							&#125;
-						</code>						
-					</div>
+					React.createElement("div", null, 					
+						React.createElement("code", null, 
+							"{", React.createElement("br", null), 
+								"\"name\" : \"Jeremy Lin\",", React.createElement("br", null), 
+								"\"phone\" / \"tel\" : \"123-456-789\"", React.createElement("br", null), 
+							"}"
+						)						
+					)
 				)
 			});
 
@@ -170,30 +169,30 @@
 				title : "The current web",
 				
 				content : (
-					<div className="lyt-centerContent">
+					React.createElement("div", {className: "lyt-centerContent"}, 
 					
-						<p className="lyt-margin-top-20x lyt-margin-bottom-10x">
-							Follow <span className="sty-highlight">LINKs</span> in the HTML
-						</p>
+						React.createElement("p", {className: "lyt-margin-top-20x lyt-margin-bottom-10x"}, 
+							"Follow ", React.createElement("span", {className: "sty-highlight"}, "LINKs"), " in the HTML"
+						), 
 						
-						<code className="sty-font-italic">
-							{ formatHTML(<span>Frank Darabont</span>) }
-							<br/>
-							{ formatHTML(<a href="xyz.html">The Shawshank Redemption</a>) }
-						</code>
+						React.createElement("code", {className: "sty-font-italic"}, 
+							 formatHTML(React.createElement("span", null, "Frank Darabont")), 
+							React.createElement("br", null), 
+							 formatHTML(React.createElement("a", {href: "xyz.html"}, "The Shawshank Redemption")) 
+						), 
 						
-						<p className="lyt-margin-top-40x lyt-margin-bottom-10x">
-							Exchange data thru <span className="sty-highlight">JSON</span>
-						</p>
+						React.createElement("p", {className: "lyt-margin-top-40x lyt-margin-bottom-10x"}, 
+							"Exchange data thru ", React.createElement("span", {className: "sty-highlight"}, "JSON")
+						), 
 						
-						<code className="sty-font-italic">
-							&#123;<br/>
-								"name" : "Jeremy Lin",<br/>
-								"tel" : "123-456-789"<br/>
-							&#125;
-						</code>
+						React.createElement("code", {className: "sty-font-italic"}, 
+							"{", React.createElement("br", null), 
+								"\"name\" : \"Jeremy Lin\",", React.createElement("br", null), 
+								"\"tel\" : \"123-456-789\"", React.createElement("br", null), 
+							"}"
+						)
 						
-					</div>
+					)
 				)
 			});
 
@@ -202,18 +201,18 @@
 				title : "Ambiguity",
 				
 				content : (
-					<div className="lyt-centerContent">
-						<code className="lyt-margin-bottom-20x">
-							&#123;<br/>
-								<span className="sty-highlight">name : "Jeremy Lin"</span>, page : "http://linsanity.com"
-							<br/>&#125;
-						</code>
-						<code>
-							&#123;<br/>
-								<span className="sty-highlight">name : "Linsanity"</span>, page : "http://linsanity.com"
-							<br/>&#125;
-						</code>
-					</div>
+					React.createElement("div", {className: "lyt-centerContent"}, 
+						React.createElement("code", {className: "lyt-margin-bottom-20x"}, 
+							"{", React.createElement("br", null), 
+								React.createElement("span", {className: "sty-highlight"}, "name : \"Jeremy Lin\""), ", page : \"http://linsanity.com\"", 
+							React.createElement("br", null), "}"
+						), 
+						React.createElement("code", null, 
+							"{", React.createElement("br", null), 
+								React.createElement("span", {className: "sty-highlight"}, "name : \"Linsanity\""), ", page : \"http://linsanity.com\"", 
+							React.createElement("br", null), "}"
+						)
+					)
 				)
 			});
 			
@@ -222,9 +221,9 @@
 				title : "Difficult for computer",
 				
 				content : (
-					<div className="lyt-centerContent lyt-margin-top-20x">
-						<img src="./img/sad_computer.png" />
-					</div>
+					React.createElement("div", {className: "lyt-centerContent lyt-margin-top-20x"}, 
+						React.createElement("img", {src: "./img/sad_computer.png"})
+					)
 				)
 			});
 
@@ -233,15 +232,15 @@
 				title : "Computer loves this",
 				
 				content : (
-					<div className="lyt-centerContent lyt-margin-top-10x">
-						<code>
-							&#123;<br/>
-								<span className="sty-highlight">"https://schema.org/name"</span> : "Linsanity",
-								<br/>
-								<span className="sty-highlight">"https://schema.org/WebPage"</span> : "http://linsanity.com"
-							<br/>&#125;
-						</code>
-					</div>
+					React.createElement("div", {className: "lyt-centerContent lyt-margin-top-10x"}, 
+						React.createElement("code", null, 
+							"{", React.createElement("br", null), 
+								React.createElement("span", {className: "sty-highlight"}, "\"https://schema.org/name\""), " : \"Linsanity\",", 
+								React.createElement("br", null), 
+								React.createElement("span", {className: "sty-highlight"}, "\"https://schema.org/WebPage\""), " : \"http://linsanity.com\"", 
+							React.createElement("br", null), "}"
+						)
+					)
 				)
 			});
 
@@ -250,9 +249,9 @@
 				title : "Computer friendly language !?",
 				
 				content : (
-					<div className="lyt-centerContent lyt-margin-top-20x">
-						<img src="./img/help_computer.jpg" />
-					</div>
+					React.createElement("div", {className: "lyt-centerContent lyt-margin-top-20x"}, 
+						React.createElement("img", {src: "./img/help_computer.jpg"})
+					)
 				)
 			});
 
@@ -261,9 +260,9 @@
 				title : "RDF",
 				
 				content : (
-					<div className="lyt-centerContent lyt-margin-top-20x">
-						<a href="http://www.w3.org/RDF/">Resource Description Framework</a>
-					</div>
+					React.createElement("div", {className: "lyt-centerContent lyt-margin-top-20x"}, 
+						React.createElement("a", {href: "http://www.w3.org/RDF/"}, "Resource Description Framework")
+					)
 				)
 			});
 
@@ -272,9 +271,9 @@
 				title : "How to express ?",
 				
 				content : (
-					<div className="lyt-centerContent lyt-margin-top-20x">
-						<img src="./img/graph_for_human.png" />
-					</div>
+					React.createElement("div", {className: "lyt-centerContent lyt-margin-top-20x"}, 
+						React.createElement("img", {src: "./img/graph_for_human.png"})
+					)
 				)
 			});
 
@@ -283,55 +282,75 @@
 				title : "Graph",
 				
 				content : (
-					<div className="lyt-centerContent lyt-margin-top-20x">
-						<img src="./img/graph_for_computer.png" />
-					</div>
+					React.createElement("div", {className: "lyt-centerContent lyt-margin-top-20x"}, 
+						React.createElement("img", {src: "./img/graph_for_computer.png"})
+					)
 				)
 			});
 			
-//env_dbg.dPoint=
+env_dbg.dPoint=
 
-			//slideData.push({
-			//
-			//	title : "RDF statement",
-			//	
-			//	content : (
-			//		<div className="lyt-centerContent lyt-margin-top-20x">
-			//		
-			//			<p className="lyt-margin-bottom-20x">
-			//				Subject - Predicate - Object
-			//			</p>
-			//		
-			//			<p>
-			//				"Lin plays basketball"
-			//			</p>
-			//			
-			//		</div>
-			//	)
-			//});
+			slideData.push({
+			
+				title : "RDF statement",
+				
+				content : (
+					React.createElement("div", {className: "lyt-centerContent lyt-margin-top-20x"}, 
+					
+						React.createElement("p", {className: "lyt-margin-bottom-20x"}, 
+							"Subject - Predicate - Object"
+						), 
+					
+						React.createElement("p", null, 
+							"\"Lin plays basketball\""
+						)
+						
+					)
+				)
+			});
 
-			//slideData.push({
-			//
-			//	title : "Structured data",
-			//	
-			//	content : (
-			//		<div className="grid-parent grid-100 mobile-grid-100 lyt-margin-top-20x">
-			//			
-			//			<div className="grid-50 mobile-grid-50">
-			//				
-			//				<img style="width : 80%" src="./img/schema_logo.jpg" />
-			//				
-			//			</div>
-			//			
-			//			<div className="grid-50 mobile-grid-50">
-			//				
-			//				<img style="width : 80%" src="./img/foaf_logo.png" />
-			//				
-			//			</div>
-			//			
-			//		</div>
-			//	)
-			//});
+			slideData.push({
+			
+				title : "Structured data",
+				
+				content : (
+					React.createElement("div", {className: "grid-container grid-parent grid-100 mobile-grid-100 lyt-margin-top-20x"}, 
+
+						React.createElement("div", {className: "grid-50 mobile-grid-100 lyt-centerContent lyt-mobile-margin-bottom-15x"}, 
+							
+							React.createElement("div", {className: "lyt-margin-bottom-15x"}, "Schema.org"), 
+
+							React.createElement("a", {href: "https://schema.org/"}, 
+								React.createElement("img", {src: "./img/schema_logo.jpg", 								
+									 className: "lyt-centerBlock", 									 
+									 style:  {
+										width : "80%",
+										minWidth : "200px"
+									 } }
+								)
+							)
+
+						), 
+
+						React.createElement("div", {className: "grid-50 mobile-grid-100 lyt-centerContent"}, 
+							
+							React.createElement("div", {className: "lyt-margin-bottom-15x"}, "FOAF"), 
+							
+							React.createElement("a", {href: "http://www.foaf-project.org/"}, 
+								React.createElement("img", {src: "./img/foaf_logo.png", 
+									 className: "lyt-centerBlock", 
+									 style:  {
+										width : "80%",
+										minWidth : "200px"
+									 } }
+								)
+							)
+
+						)
+						
+					)
+				)
+			});
 		}
 		
 	var i = env_dbg.isDBG() ? env_dbg.dPoint - 1 : 0,

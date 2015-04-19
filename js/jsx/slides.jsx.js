@@ -288,49 +288,69 @@
 				)
 			});
 			
-//env_dbg.dPoint=
+env_dbg.dPoint=
 
-			//slideData.push({
-			//
-			//	title : "RDF statement",
-			//	
-			//	content : (
-			//		<div className="lyt-centerContent lyt-margin-top-20x">
-			//		
-			//			<p className="lyt-margin-bottom-20x">
-			//				Subject - Predicate - Object
-			//			</p>
-			//		
-			//			<p>
-			//				"Lin plays basketball"
-			//			</p>
-			//			
-			//		</div>
-			//	)
-			//});
+			slideData.push({
+			
+				title : "RDF statement",
+				
+				content : (
+					<div className="lyt-centerContent lyt-margin-top-20x">
+					
+						<p className="lyt-margin-bottom-20x">
+							Subject - Predicate - Object
+						</p>
+					
+						<p>
+							"Lin plays basketball"
+						</p>
+						
+					</div>
+				)
+			});
 
-			//slideData.push({
-			//
-			//	title : "Structured data",
-			//	
-			//	content : (
-			//		<div className="grid-parent grid-100 mobile-grid-100 lyt-margin-top-20x">
-			//			
-			//			<div className="grid-50 mobile-grid-50">
-			//				
-			//				<img style="width : 80%" src="./img/schema_logo.jpg" />
-			//				
-			//			</div>
-			//			
-			//			<div className="grid-50 mobile-grid-50">
-			//				
-			//				<img style="width : 80%" src="./img/foaf_logo.png" />
-			//				
-			//			</div>
-			//			
-			//		</div>
-			//	)
-			//});
+			slideData.push({
+			
+				title : "Structured data",
+				
+				content : (
+					<div className="grid-container grid-parent grid-100 mobile-grid-100 lyt-margin-top-20x">
+
+						<div className="grid-50 mobile-grid-100 lyt-centerContent lyt-mobile-margin-bottom-25x">
+							
+							<div className="lyt-margin-bottom-15x">Schema.org</div>
+
+							<a href="https://schema.org/">
+								<img src="./img/schema_logo.jpg"								
+									 className="lyt-centerBlock"									 
+									 style={ {
+										width : "80%",
+										minWidth : "200px"
+									 } }
+								/>
+							</a>
+
+						</div>
+
+						<div className="grid-50 mobile-grid-100 lyt-centerContent">
+							
+							<div className="lyt-margin-bottom-15x">FOAF</div>
+							
+							<a href="http://www.foaf-project.org/">
+								<img src="./img/foaf_logo.png"
+									 className="lyt-centerBlock"
+									 style={ {
+										width : "80%",
+										minWidth : "200px"
+									 } }
+								/>
+							</a>
+
+						</div>
+						
+					</div>
+				)
+			});
 		}
 		
 	var i = env_dbg.isDBG() ? env_dbg.dPoint - 1 : 0,
