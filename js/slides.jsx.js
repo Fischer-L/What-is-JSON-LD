@@ -14,41 +14,56 @@
 			return React.renderToStaticMarkup(reactElem);
 		},
 		
-		jsonHead = function () {
-			return (React.createElement("div", null, "{"));
+		jsonHead = function (lv) {
+		
+			if (!pptility.isNum(lv)) lv = 0;
+		
+			return (React.createElement("div", null, tab(lv, ""), "{"));
 		},
 		
-		jsonEnd = function (trailingComma) {
-		
+		jsonEnd = function (lv, trailingComma) {
+			
+			if (!pptility.isNum(lv)) lv = 0;
+			
 			trailingComma = (trailingComma === ",") ? "," : null;
 			
-			return (React.createElement("div", null, "}", trailingComma));
+			return (React.createElement("div", null, tab(lv, ""), "}", trailingComma));
 		},
 		
-		tab = function (lv, str) {
+		tab = function (lv, content) {
 			
 			var tab = [];
 			
 			for (lv--; lv >= 0; lv--) { // No tab for the lv 0
-				tab.push( React.createElement("span", null, "   ") );
+				tab.push( React.createElement("span", null, "    ") );
 			}
 			
 			if (tab.length <= 0) tab = null;
 			
-			return ( React.createElement("span", null, tab, str) );
+			return ( React.createElement("span", null, tab, content) );
 		},
 		
-		comment = function(lv, str) {		
-			return ( React.createElement("div", {className: "sty-comment"}, tab(lv, ""), "// ", str) );			
+		comment = function(lv, str) {
+		
+			var span = ( React.createElement("span", {className: "sty-comment"}, tab(lv, ""), "// ", str) );	
+
+			return newLine(0, span);			
 		},
 		
-		newLine = function (lv, str, trailingComma) {
+		highlit = function (lv, str, trailingComma) {
 			
-			str = tab(lv, str);
+			var span = ( React.createElement("span", {className: "sty-highlight"}, tab(lv, ""), str) );
+			
+			return newLine(0, span, trailingComma);
+		},
+		
+		newLine = function (lv, content, trailingComma) {
+			
+			content = tab(lv, content);
 			
 			if (trailingComma !== ",") trailingComma = null;
 		
-			return ( React.createElement("div", null, str, trailingComma) );			
+			return ( React.createElement("div", null, content, trailingComma) );			
 		};
 		
 	
@@ -444,8 +459,6 @@
 					)
 				)
 			});
-						
-env_dbg.dPoint=
 
 			slideData.push({
 			
@@ -458,23 +471,207 @@ env_dbg.dPoint=
 								
 								 newLine(0, "\"@contxt\" :"), 
 								
-									 jsonHead(), 
+									 jsonHead(1), 
 									
 										 newLine(1, "\"foaf\" : \"http://xmlns.com/foaf/0.1/\""), 
 									
-									 jsonEnd(","), 
+									 jsonEnd(1, ","), 
 								
 								 comment(0, "\"@type\" : \"http://xmlns.com/foaf/0.1/Person\""), 
 								 newLine(0, "\"@type\": \"foaf:Person\"", ","), 
 								
-								 comment(0, "\"http://xmlns.com/foaf/0.1/name\" : \"Dave Longley\""), 
-								 newLine(0, "\"foaf:name\" : \"Dave Longley\""), 
+								 comment(0, "\"http://xmlns.com/foaf/0.1/name\" : \"Jeremy Lin\""), 
+								 newLine(0, "\"foaf:name\" : \"Jeremy Lin\""), 
 								
 							 jsonEnd() 
 						)
 					)
 				)
 			});
+
+			slideData.push({
+			
+				title : "Type",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-20x lyt-centerContent"}, 
+						React.createElement("code", null, 
+							 jsonHead(), 
+								
+								 newLine(1, "\"@contxt\" :"), 
+								
+									 jsonHead(1), 
+									
+										 newLine(2, "\"foaf\" : \"http://xmlns.com/foaf/0.1/\""), 
+									
+									 jsonEnd(1, ","), 
+								
+								 comment(1, "The data type is Person"), 
+								 highlit(1, "\"@type\": \"foaf:Person\"", ","), 
+								
+								 newLine(1, "\"foaf:name\" : \"Jeremy Lin\""), 
+								
+							 jsonEnd() 
+						)
+					)
+				)
+			});
+
+			slideData.push({
+			
+				title : "Type",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-20x lyt-centerContent"}, 
+						React.createElement("code", null, 
+							 jsonHead(), 
+								
+								 newLine(1, "\"@contxt\" :"), 
+								
+									 jsonHead(1), 
+									
+										 newLine(2, "\"xsd\": \"http://www.w3.org/2001/XMLSchema#\"", ","), 									
+										 newLine(2, "..."), 
+										
+									 jsonEnd(1, ","), 
+								
+								 newLine(1, "\"birthday\" :"), 
+								
+									 jsonHead(1), 
+										
+										 newLine(2, "\"@value\" : \"2000-01-01\"", ","), 
+										 highlit(2, "\"@type\" : \"xsd:date\""), 
+										
+									 jsonEnd(1), 
+								
+							 jsonEnd() 
+						)
+					)
+				)
+			});
+						
+env_dbg.dPoint=
+
+			slideData.push({
+			
+				title : "Type coercion",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-20x lyt-centerContent"}, 
+						React.createElement("code", null, 
+							 jsonHead(), 
+								
+								 newLine(1, "\"@contxt\" :"), 
+								
+									 jsonHead(1), 
+										
+										 highlit(2, "\"birthday\" :"), 
+											
+											 jsonHead(2), 
+												
+												 newLine(3, "\"@id\" : \"https://schema.org/birthDate\"", ","), 												
+												 newLine(3, "\"@type\" : \"https://schema.org/birthDate\""), 
+												
+											 jsonEnd(2, ","), 
+										
+									 jsonEnd(1, ","), 
+								
+								 highlit(1, "\"birthday\" : \"2000-01-01\""), 
+								
+							 jsonEnd() 
+						)
+					)
+				)
+			});
+
+			slideData.push({
+			
+				title : "Keyword Aliasing",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-20x lyt-centerContent"}, 
+						React.createElement("code", null, 
+							 jsonHead(), 
+								
+								 newLine(1, "\"@contxt\" :"), 
+								
+									 jsonHead(1), 
+										
+										 highlit(2, "\"url\": \"@id\"", ","), 
+										 newLine(2, "..."), 
+										
+									 jsonEnd(1, ","), 
+								
+								 highlit(1, "\"url\" : \"http://foo.com/jeremy_lin\"", ","), 
+								 newLine(1, "\"name\" : \"Jeremy Lin\""), 
+								
+							 jsonEnd() 
+						)
+					)
+				)
+			});	
+			
+env_dbg.dPoint=
+
+			slideData.push({
+			
+				title : "Language",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-20x lyt-centerContent"}, 
+						React.createElement("code", null, 
+							 jsonHead(), 
+								
+								 newLine(1, "\"@contxt\" : ..."), 
+								
+								 newLine(1, "\"name\" :"), 
+									
+									 jsonHead(1), 
+										
+										 newLine(2, "\"@value\" : \"たなか まさひろ\"", ","), 
+										
+										 comment(2, "BCP-47"), 
+										 highlit(2, "\"@language\" : \"jp\""), 
+										
+									 jsonEnd(1), 
+									
+							 jsonEnd() 
+						)
+					)
+				)
+			});	
+
+			slideData.push({
+			
+				title : "Language",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-20x lyt-centerContent"}, 
+						React.createElement("code", null, 
+							 jsonHead(), 
+								
+								 newLine(1, "\"@contxt\" :"), 
+									
+									 jsonHead(1), 
+										
+										 newLine(2, "nameJP :"), 
+										
+											 jsonHead(2), 
+												
+												 newLine(3, "\"@id\" : \"http://schema.org/name\"", ","), 
+												 highlit(3, "\"@language\" : \"jp\""), 
+												
+											 jsonEnd(2), 
+										
+										 newLine(2, "\"nameJP\" : \"たなか まさひろ\"", ","), 
+										
+									 jsonEnd(1), 
+									
+							 jsonEnd() 
+						)
+					)
+				)
+			});	
 		}
 		
 	var i = env_dbg.isDBG() ? env_dbg.dPoint - 1 : 0,

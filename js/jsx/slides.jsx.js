@@ -14,41 +14,56 @@
 			return React.renderToStaticMarkup(reactElem);
 		},
 		
-		jsonHead = function () {
-			return (<div>&#123;</div>);
+		jsonHead = function (lv) {
+		
+			if (!pptility.isNum(lv)) lv = 0;
+		
+			return (<div>{tab(lv, "")}&#123;</div>);
 		},
 		
-		jsonEnd = function (trailingComma) {
-		
+		jsonEnd = function (lv, trailingComma) {
+			
+			if (!pptility.isNum(lv)) lv = 0;
+			
 			trailingComma = (trailingComma === ",") ? "," : null;
 			
-			return (<div>&#125;{trailingComma}</div>);
+			return (<div>{tab(lv, "")}&#125;{trailingComma}</div>);
 		},
 		
-		tab = function (lv, str) {
+		tab = function (lv, content) {
 			
 			var tab = [];
 			
 			for (lv--; lv >= 0; lv--) { // No tab for the lv 0
-				tab.push( <span>&nbsp;&nbsp;&nbsp;</span> );
+				tab.push( <span>&nbsp;&nbsp;&nbsp;&nbsp;</span> );
 			}
 			
 			if (tab.length <= 0) tab = null;
 			
-			return ( <span>{tab}{str}</span> );
+			return ( <span>{tab}{content}</span> );
 		},
 		
-		comment = function(lv, str) {		
-			return ( <div className="sty-comment">{tab(lv, "")}&#47;&#47; {str}</div> );			
+		comment = function(lv, str) {
+		
+			var span = ( <span className="sty-comment">{tab(lv, "")}&#47;&#47; {str}</span> );	
+
+			return newLine(0, span);			
 		},
 		
-		newLine = function (lv, str, trailingComma) {
+		highlit = function (lv, str, trailingComma) {
 			
-			str = tab(lv, str);
+			var span = ( <span className="sty-highlight">{tab(lv, "")}{str}</span> );
+			
+			return newLine(0, span, trailingComma);
+		},
+		
+		newLine = function (lv, content, trailingComma) {
+			
+			content = tab(lv, content);
 			
 			if (trailingComma !== ",") trailingComma = null;
 		
-			return ( <div>{str}{trailingComma}</div> );			
+			return ( <div>{content}{trailingComma}</div> );			
 		};
 		
 	
@@ -444,8 +459,6 @@
 					</div>
 				)
 			});
-						
-env_dbg.dPoint=
 
 			slideData.push({
 			
@@ -458,23 +471,207 @@ env_dbg.dPoint=
 								
 								{ newLine(0, "\"@contxt\" :") }
 								
-									{ jsonHead() }
+									{ jsonHead(1) }
 									
 										{ newLine(1, "\"foaf\" : \"http://xmlns.com/foaf/0.1/\"") }
 									
-									{ jsonEnd(",") }
+									{ jsonEnd(1, ",") }
 								
 								{ comment(0, "\"@type\" : \"http://xmlns.com/foaf/0.1/Person\"") }
 								{ newLine(0, "\"@type\": \"foaf:Person\"", ",") }
 								
-								{ comment(0, "\"http://xmlns.com/foaf/0.1/name\" : \"Dave Longley\"") }
-								{ newLine(0, "\"foaf:name\" : \"Dave Longley\"") }
+								{ comment(0, "\"http://xmlns.com/foaf/0.1/name\" : \"Jeremy Lin\"") }
+								{ newLine(0, "\"foaf:name\" : \"Jeremy Lin\"") }
 								
 							{ jsonEnd() }
 						</code>
 					</div>
 				)
 			});
+
+			slideData.push({
+			
+				title : "Type",
+				
+				content : (
+					<div className="lyt-margin-top-20x lyt-centerContent">
+						<code>
+							{ jsonHead() }
+								
+								{ newLine(1, "\"@contxt\" :") }
+								
+									{ jsonHead(1) }
+									
+										{ newLine(2, "\"foaf\" : \"http://xmlns.com/foaf/0.1/\"") }
+									
+									{ jsonEnd(1, ",") }
+								
+								{ comment(1, "The data type is Person") }
+								{ highlit(1, "\"@type\": \"foaf:Person\"", ",") }
+								
+								{ newLine(1, "\"foaf:name\" : \"Jeremy Lin\"") }
+								
+							{ jsonEnd() }
+						</code>
+					</div>
+				)
+			});
+
+			slideData.push({
+			
+				title : "Type",
+				
+				content : (
+					<div className="lyt-margin-top-20x lyt-centerContent">
+						<code>
+							{ jsonHead() }
+								
+								{ newLine(1, "\"@contxt\" :") }
+								
+									{ jsonHead(1) }
+									
+										{ newLine(2, "\"xsd\": \"http://www.w3.org/2001/XMLSchema#\"", ",") }									
+										{ newLine(2, "...") }
+										
+									{ jsonEnd(1, ",") }
+								
+								{ newLine(1, "\"birthday\" :") }
+								
+									{ jsonHead(1) }
+										
+										{ newLine(2, "\"@value\" : \"2000-01-01\"", ",") }
+										{ highlit(2, "\"@type\" : \"xsd:date\"") }
+										
+									{ jsonEnd(1) }
+								
+							{ jsonEnd() }
+						</code>
+					</div>
+				)
+			});
+						
+env_dbg.dPoint=
+
+			slideData.push({
+			
+				title : "Type coercion",
+				
+				content : (
+					<div className="lyt-margin-top-20x lyt-centerContent">
+						<code>
+							{ jsonHead() }
+								
+								{ newLine(1, "\"@contxt\" :") }
+								
+									{ jsonHead(1) }
+										
+										{ highlit(2, "\"birthday\" :") }
+											
+											{ jsonHead(2) }
+												
+												{ newLine(3, "\"@id\" : \"https://schema.org/birthDate\"", ",") }												
+												{ newLine(3, "\"@type\" : \"https://schema.org/birthDate\"") }
+												
+											{ jsonEnd(2, ",") }
+										
+									{ jsonEnd(1, ",") }
+								
+								{ highlit(1, "\"birthday\" : \"2000-01-01\"") }
+								
+							{ jsonEnd() }
+						</code>
+					</div>
+				)
+			});
+
+			slideData.push({
+			
+				title : "Keyword Aliasing",
+				
+				content : (
+					<div className="lyt-margin-top-20x lyt-centerContent">
+						<code>
+							{ jsonHead() }
+								
+								{ newLine(1, "\"@contxt\" :") }
+								
+									{ jsonHead(1) }
+										
+										{ highlit(2, "\"url\": \"@id\"", ",") }
+										{ newLine(2, "...") }
+										
+									{ jsonEnd(1, ",") }
+								
+								{ highlit(1, "\"url\" : \"http://foo.com/jeremy_lin\"", ",") }
+								{ newLine(1, "\"name\" : \"Jeremy Lin\"") }
+								
+							{ jsonEnd() }
+						</code>
+					</div>
+				)
+			});	
+			
+env_dbg.dPoint=
+
+			slideData.push({
+			
+				title : "Language",
+				
+				content : (
+					<div className="lyt-margin-top-20x lyt-centerContent">
+						<code>
+							{ jsonHead() }
+								
+								{ newLine(1, "\"@contxt\" : ...", ",") }
+								
+								{ newLine(1, "\"name\" :") }
+									
+									{ jsonHead(1) }
+										
+										{ newLine(2, "\"@value\" : \"たなか まさひろ\"", ",") }
+										
+										{ comment(2, "BCP-47") }
+										{ highlit(2, "\"@language\" : \"jp\"") }
+										
+									{ jsonEnd(1) }
+									
+							{ jsonEnd() }
+						</code>
+					</div>
+				)
+			});	
+
+			slideData.push({
+			
+				title : "Language",
+				
+				content : (
+					<div className="lyt-margin-top-20x lyt-centerContent">
+						<code>
+							{ jsonHead() }
+								
+								{ newLine(1, "\"@contxt\" :") }
+									
+									{ jsonHead(1) }
+										
+										{ newLine(2, "nameJP :") }
+										
+											{ jsonHead(2) }
+												
+												{ newLine(3, "\"@id\" : \"http://schema.org/name\"", ",") }
+												{ highlit(3, "\"@language\" : \"jp\"") }
+												
+											{ jsonEnd(2) }
+										
+									{ jsonEnd(1) }
+									
+								{ newLine(1, "\"nameJP\" : \"たなか まさひろ\"", ",") }
+										
+							{ jsonEnd() }
+						</code>
+					</div>
+				)
+			});	
 		}
 		
 	var i = env_dbg.isDBG() ? env_dbg.dPoint - 1 : 0,
