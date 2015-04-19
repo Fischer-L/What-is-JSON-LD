@@ -706,7 +706,7 @@
 				
 				content : (
 					React.createElement("div", {className: "lyt-margin-top-20x lyt-centerContent"}, 
-						React.createElement("code", null, 
+						React.createElement("code", {className: "sty-font-size-s"}, 
 							 objHead(), 
 								
 								 newLine(1, "\"@context\" :"), 
@@ -754,7 +754,7 @@
 				
 				content : (
 					React.createElement("div", {className: "lyt-margin-top-20x lyt-centerContent"}, 
-						React.createElement("code", null, 
+						React.createElement("code", {className: "sty-font-size-s"}, 
 							 objHead(), 
 								
 								 newLine(1, "\"@context\" :"), 
@@ -804,7 +804,7 @@
 				
 				content : (
 					React.createElement("div", {className: "lyt-margin-top-20x lyt-centerContent"}, 
-						React.createElement("code", null, 
+						React.createElement("code", {className: "sty-font-size-s"}, 
 							 objHead(), 
 								
 								 newLine(1, "\"@context\" : ...", ","), 								

@@ -706,7 +706,7 @@
 				
 				content : (
 					<div className="lyt-margin-top-20x lyt-centerContent">
-						<code>
+						<code className="sty-font-size-s" >
 							{ objHead() }
 								
 								{ newLine(1, "\"@context\" :") }
@@ -754,7 +754,7 @@
 				
 				content : (
 					<div className="lyt-margin-top-20x lyt-centerContent">
-						<code>
+						<code className="sty-font-size-s" >
 							{ objHead() }
 								
 								{ newLine(1, "\"@context\" :") }
@@ -804,7 +804,7 @@
 				
 				content : (
 					<div className="lyt-margin-top-20x lyt-centerContent">
-						<code>
+						<code className="sty-font-size-s" >
 							{ objHead() }
 								
 								{ newLine(1, "\"@context\" : ...", ",") }								
