@@ -289,8 +289,75 @@ var notes = {
 				 "foaf:name" : "Dave Longley"
 				// "http://xmlns.com/foaf/0.1/name" : "Dave Longley"
 			};
-		}
+		},
+		
+		* Blank node id : {
+		
+			example : {
+				...
+				"@id" : "_:p1",
+				"name" : "Jeremy Lin",
+				"knows" : {
+					"name" : "Carlos Boozer",
+					"knows" : "_:p1"
+				}
+			}
+		},
+
+		* Forms : {
+			
+			* Compacted : {
+				"@context": {
+					"name": "http://xmlns.com/foaf/0.1/name",
+					"homepage": {
+						"@id": "http://xmlns.com/foaf/0.1/homepage",
+						"@type": "@id"
+					}
+				},
+				"name": "Jeremy Lin",
+				"homepage": "http://en.wikipedia.org/wiki/Jeremy_Lin"
+			},
+			
+			* Expanded : {				
+				"http://xmlns.com/foaf/0.1/name" : "Jeremy Lin",
+				"http://xmlns.com/foaf/0.1/homepage": "http://en.wikipedia.org/wiki/Jeremy_Lin"
+			}
+		},
+		
+		* Embedded in HTML : {
+			
+			<script type="application/ld+json">
+				{
+					// Your JSON-LD content
+				}
+			</script>
+		},
+		
 	},
+	
+	Tools : {
+	
+		* RDF Translator : {
+			* Translate between RDFa - Microdata - RDF/XML - N3 - N-Triples - JSON-LD
+			* REST API supported
+			* http://rdf-translator.appspot.com/
+		},
+		
+		* JSON-LD Playground : {
+			* Provide examples
+			* http://json-ld.org/playground/index.html
+		},
+		
+		* Schema.org : {
+			* Type definition, provide examples
+			* https://schema.org/
+		},
+		
+		* Apache Jena : {
+			* A Java framework for processing RDF data
+			* http://jena.apache.org/index.html
+		}
+	}
 	
 	Ref : {
 	
