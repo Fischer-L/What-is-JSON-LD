@@ -287,8 +287,6 @@
 					</div>
 				)
 			});
-			
-env_dbg.dPoint=
 
 			slideData.push({
 			
@@ -348,6 +346,27 @@ env_dbg.dPoint=
 
 						</div>
 						
+					</div>
+				)
+			});
+			
+env_dbg.dPoint=
+
+			slideData.push({
+			
+				title : "Linked Data",
+				
+				content : (
+					<div className="lyt-margin-top-20x lyt-centerContent">
+						<span>
+							Data linked by
+							&nbsp;
+							<span className="sty-highlight">Algorithm</span>
+							&nbsp;
+							with 
+							&nbsp;
+							<span className="sty-highlight">Data Structure</span>
+						</span>
 					</div>
 				)
 			});

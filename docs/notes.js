@@ -335,6 +335,15 @@ var notes = {
 		
 	},
 	
+	More Linked Data Syntax : {
+	
+		* RDF/XML : http://en.wikipedia.org/wiki/N-Triples#Example
+		
+		* RDFa : http://en.wikipedia.org/wiki/RDFa#Examples
+		
+		* N-Triples : http://en.wikipedia.org/wiki/N-Triples#Example
+	},
+	
 	Tools : {
 	
 		* RDF Translator : {

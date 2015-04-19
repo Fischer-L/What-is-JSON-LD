@@ -287,8 +287,6 @@
 					)
 				)
 			});
-			
-env_dbg.dPoint=
 
 			slideData.push({
 			
@@ -316,7 +314,7 @@ env_dbg.dPoint=
 				content : (
 					React.createElement("div", {className: "grid-container grid-parent grid-100 mobile-grid-100 lyt-margin-top-20x"}, 
 
-						React.createElement("div", {className: "grid-50 mobile-grid-100 lyt-centerContent lyt-mobile-margin-bottom-15x"}, 
+						React.createElement("div", {className: "grid-50 mobile-grid-100 lyt-centerContent lyt-mobile-margin-bottom-25x"}, 
 							
 							React.createElement("div", {className: "lyt-margin-bottom-15x"}, "Schema.org"), 
 
@@ -348,6 +346,25 @@ env_dbg.dPoint=
 
 						)
 						
+					)
+				)
+			});
+			
+env_dbg.dPoint=
+
+			slideData.push({
+			
+				title : "Linked Data",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-20x lyt-centerContent"}, 
+						React.createElement("span", null, 
+							"Data linked by" + ' ' +
+							" ", 
+							React.createElement("span", {className: "sty-highlight"}, "Algorithm"), 
+							"with",  
+							React.createElement("span", {className: "sty-highlight"}, "Data Structure")
+						)
 					)
 				)
 			});
