@@ -264,35 +264,6 @@ var notes = {
 			}
 		},
 		
-		* Important Format algo : {
-		
-			* Expansion & Compaction
-			
-			* Expansion is "name" -> "http://schema.org/name"
-			
-			* Compaction is "http://schema.org/name" --> "name"
-			
-			* Example-1 : {
-			
-				var comp = {
-						"@context" : "http://schema.org/",
-						name : "Jeremy Lin"
-					};
-				
-				Expand comp then we get (The reverse process is called Compaction)
-				
-				var exp = {
-						"http://schema.org/name" : "Jeremy Lin"
-					};
-			},
-			
-			* Example-2 : {
-				
-				
-				
-			}
-		},
-		
 		* Compact IRI : {
 		
 			example = {
