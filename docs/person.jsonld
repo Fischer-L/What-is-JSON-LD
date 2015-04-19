@@ -4,6 +4,11 @@
       "Person": "http://xmlns.com/foaf/0.1/Person",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "name": "http://xmlns.com/foaf/0.1/name",
+      "email":
+      {
+         "@id": "http://xmlns.com/foaf/0.1/mbox",
+         "@type": "@id"
+      },
       "nickname": "http://xmlns.com/foaf/0.1/nick",
       "affiliation": "http://schema.org/affiliation",
       "depiction":
@@ -40,11 +45,6 @@
       {
          "@id": "http://schema.org/deathDate",
          "@type": "xsd:dateTime"
-      },
-      "email":
-      {
-         "@id": "http://xmlns.com/foaf/0.1/mbox",
-         "@type": "@id"
       },
       "familyName": "http://xmlns.com/foaf/0.1/familyName",
       "givenName": "http://xmlns.com/foaf/0.1/givenName",

@@ -283,7 +283,7 @@ var notes = {
 					foaf : "http://xmlns.com/foaf/0.1/"
 				},
 				
-				"@type": "foaf:Person",				
+				"@type": "foaf:Person",			
 				// "@type" : "http://xmlns.com/foaf/0.1/Person"
 				
 				 "foaf:name" : "Dave Longley"

@@ -10,9 +10,47 @@
 		
 		env_classNames = ppt.CONST.classNames,
 		
-		formatHTML = function (v) {		
-			return React.renderToStaticMarkup(v);
+		formatoHTML = function (reactElem) {		
+			return React.renderToStaticMarkup(reactElem);
+		},
+		
+		jsonHead = function () {
+			return (<div>&#123;</div>);
+		},
+		
+		jsonEnd = function (trailingComma) {
+		
+			trailingComma = (trailingComma === ",") ? "," : null;
+			
+			return (<div>&#125;{trailingComma}</div>);
+		},
+		
+		tab = function (lv, str) {
+			
+			var tab = [];
+			
+			for (lv--; lv >= 0; lv--) { // No tab for the lv 0
+				tab.push( <span>&nbsp;&nbsp;&nbsp;</span> );
+			}
+			
+			if (tab.length <= 0) tab = null;
+			
+			return ( <span>{tab}{str}</span> );
+		},
+		
+		comment = function(lv, str) {		
+			return ( <div className="sty-comment">{tab(lv, "")}&#47;&#47; {str}</div> );			
+		},
+		
+		newLine = function (lv, str, trailingComma) {
+			
+			str = tab(lv, str);
+			
+			if (trailingComma !== ",") trailingComma = null;
+		
+			return ( <div>{str}{trailingComma}</div> );			
 		};
+		
 	
 	var mkPPTSlideClass = function () {
 		
@@ -100,9 +138,9 @@
 				content : (
 					<div>
 						<code>
-							{ formatHTML(<span>Frank Darabont</span>) }
+							{ formatoHTML(<span>Frank Darabont</span>) }
 							<br/>
-							{ formatHTML(<a href="xyz.html">The Shawshank Redemption</a>) }
+							{ formatoHTML(<a href="xyz.html">The Shawshank Redemption</a>) }
 						</code>
 					</div>
 				)
@@ -115,9 +153,9 @@
 				content : (
 					<div>
 						<code>
-							{ formatHTML(<span id="director">Frank Darabont</span>) }
+							{ formatoHTML(<span id="director">Frank Darabont</span>) }
 							<br/>
-							{ formatHTML(<a id="movie" href="xyz.html">The Shawshank Redemption</a>) }
+							{ formatoHTML(<a id="movie" href="xyz.html">The Shawshank Redemption</a>) }
 						</code>
 					</div>
 				)
@@ -131,17 +169,17 @@
 					<div className="grid-parent grid-100">
 					
 						<code className="grid-50">
-							&#123;<br/>
+							{ jsonHead() }
 								"name" : "Jeremy Lin",<br/>
-								"phone" : "123-456-789"<br/>
-							&#125;
+								"phone" : "123-456-789"
+							{ jsonEnd() }
 						</code>
 						
 						<code className="grid-50">
-							&#123;<br/>
+							{ jsonHead() }
 								"name" : "Jeremy Lin",<br/>
-								"tel" : "123-456-789"<br/>
-							&#125;
+								"tel" : "123-456-789"
+							{ jsonEnd() }
 						</code>
 						
 					</div>
@@ -155,10 +193,10 @@
 				content : (
 					<div>					
 						<code>
-							&#123;<br/>
+							{ jsonHead() }
 								"name" : "Jeremy Lin",<br/>
-								"phone" / "tel" : "123-456-789"<br/>
-							&#125;
+								"phone" / "tel" : "123-456-789"
+							{ jsonEnd() }
 						</code>						
 					</div>
 				)
@@ -176,9 +214,9 @@
 						</p>
 						
 						<code className="sty-font-italic">
-							{ formatHTML(<span>Frank Darabont</span>) }
+							{ formatoHTML(<span>Frank Darabont</span>) }
 							<br/>
-							{ formatHTML(<a href="xyz.html">The Shawshank Redemption</a>) }
+							{ formatoHTML(<a href="xyz.html">The Shawshank Redemption</a>) }
 						</code>
 						
 						<p className="lyt-margin-top-40x lyt-margin-bottom-10x">
@@ -186,10 +224,10 @@
 						</p>
 						
 						<code className="sty-font-italic">
-							&#123;<br/>
+							{ jsonHead() }
 								"name" : "Jeremy Lin",<br/>
-								"tel" : "123-456-789"<br/>
-							&#125;
+								"tel" : "123-456-789"
+							{ jsonEnd() }
 						</code>
 						
 					</div>
@@ -203,14 +241,14 @@
 				content : (
 					<div className="lyt-centerContent">
 						<code className="lyt-margin-bottom-20x">
-							&#123;<br/>
+							{ jsonHead() }
 								<span className="sty-highlight">name : "Jeremy Lin"</span>, page : "http://linsanity.com"
-							<br/>&#125;
+							{ jsonEnd() }
 						</code>
 						<code>
-							&#123;<br/>
+							{ jsonHead() }
 								<span className="sty-highlight">name : "Linsanity"</span>, page : "http://linsanity.com"
-							<br/>&#125;
+							{ jsonEnd() }
 						</code>
 					</div>
 				)
@@ -234,11 +272,11 @@
 				content : (
 					<div className="lyt-centerContent lyt-margin-top-10x">
 						<code>
-							&#123;<br/>
+							{ jsonHead() }
 								<span className="sty-highlight">"https://schema.org/name"</span> : "Linsanity",
 								<br/>
 								<span className="sty-highlight">"https://schema.org/WebPage"</span> : "http://linsanity.com"
-							<br/>&#125;
+							{ jsonEnd() }
 						</code>
 					</div>
 				)
@@ -319,13 +357,7 @@
 							<div className="lyt-margin-bottom-15x">Schema.org</div>
 
 							<a href="https://schema.org/">
-								<img src="./img/schema_logo.jpg"								
-									 className="lyt-centerBlock"									 
-									 style={ {
-										width : "80%",
-										minWidth : "200px"
-									 } }
-								/>
+								<img src="./img/schema_logo.jpg" className="lyt-centerImg" />
 							</a>
 
 						</div>
@@ -335,13 +367,7 @@
 							<div className="lyt-margin-bottom-15x">FOAF</div>
 							
 							<a href="http://www.foaf-project.org/">
-								<img src="./img/foaf_logo.png"
-									 className="lyt-centerBlock"
-									 style={ {
-										width : "80%",
-										minWidth : "200px"
-									 } }
-								/>
+								<img src="./img/foaf_logo.png" className="lyt-centerImg" />
 							</a>
 
 						</div>
@@ -349,8 +375,6 @@
 					</div>
 				)
 			});
-			
-env_dbg.dPoint=
 
 			slideData.push({
 			
@@ -367,6 +391,87 @@ env_dbg.dPoint=
 							&nbsp;
 							<span className="sty-highlight">Data Structure</span>
 						</span>
+					</div>
+				)
+			});
+
+			slideData.push({
+			
+				title : "Linking Data by JSON",
+				
+				content : (
+					<div className="lyt-margin-top-20x">							
+						<a href="http://json-ld.org/">
+							<img src="./img/json_ld_logo_0.png"
+							     className="lyt-centerImg"
+								 style={{
+									width : "250px"
+								 }}
+							/>
+						</a>
+					</div>
+				)
+			});
+
+			slideData.push({
+			
+				title : "Context",
+				
+				content : (
+					<div className="lyt-margin-top-20x lyt-centerContent">
+						<span>Do you know <a href="https://en.wikipedia.org/wiki/LSB">LSB</a> ?</span>
+					</div>
+				)
+			});
+
+			slideData.push({
+			
+				title : "Context",
+				
+				content : (
+					<div className="lyt-margin-top-20x lyt-centerContent">
+						<code>
+							{ jsonHead() }
+								<span className="sty-comment">&#47;&#47; Our context is the person.jsonld file</span>
+							<br/>
+								"@contxt" : <a href="./docs/person.jsonld">"http://foo.com/docs/person.jsonld"</a>
+							<br/>
+								"name" : "Jeremy Lin",
+							<br/>
+								"email" : "jeremy.lin@example.com"
+							{ jsonEnd() }
+						</code>
+					</div>
+				)
+			});
+						
+env_dbg.dPoint=
+
+			slideData.push({
+			
+				title : "Compact IRI",
+				
+				content : (
+					<div className="lyt-margin-top-20x lyt-centerContent">
+						<code>
+							{ jsonHead() }
+								
+								{ newLine(0, "\"@contxt\" :") }
+								
+									{ jsonHead() }
+									
+										{ newLine(1, "\"foaf\" : \"http://xmlns.com/foaf/0.1/\"") }
+									
+									{ jsonEnd(",") }
+								
+								{ comment(0, "\"@type\" : \"http://xmlns.com/foaf/0.1/Person\"") }
+								{ newLine(0, "\"@type\": \"foaf:Person\"", ",") }
+								
+								{ comment(0, "\"http://xmlns.com/foaf/0.1/name\" : \"Dave Longley\"") }
+								{ newLine(0, "\"foaf:name\" : \"Dave Longley\"") }
+								
+							{ jsonEnd() }
+						</code>
 					</div>
 				)
 			});

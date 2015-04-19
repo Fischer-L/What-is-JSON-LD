@@ -241,6 +241,13 @@ h1 {
 		display : block;
 	}
 	
+	&-centerImg {
+		@extend .lyt-centerBlock;
+		
+		width : 80%;
+		min-width : "200px";
+	}
+	
 	@for $i from 1 through 40 { // Create &-margin-???-1x/2x/3x...
 	
 		&-margin-top-#{$i}x {			
@@ -295,6 +302,14 @@ h1 {
 	
 	&-font-italic {
 		font-style : italic;
+	}
+	
+	&-comment {
+		// TODO
+	}
+	
+	&-highlight {
+		// TODO
 	}
 }
 

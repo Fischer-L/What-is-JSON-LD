@@ -10,9 +10,47 @@
 		
 		env_classNames = ppt.CONST.classNames,
 		
-		formatHTML = function (v) {		
-			return React.renderToStaticMarkup(v);
+		formatoHTML = function (reactElem) {		
+			return React.renderToStaticMarkup(reactElem);
+		},
+		
+		jsonHead = function () {
+			return (React.createElement("div", null, "{"));
+		},
+		
+		jsonEnd = function (trailingComma) {
+		
+			trailingComma = (trailingComma === ",") ? "," : null;
+			
+			return (React.createElement("div", null, "}", trailingComma));
+		},
+		
+		tab = function (lv, str) {
+			
+			var tab = [];
+			
+			for (lv--; lv >= 0; lv--) { // No tab for the lv 0
+				tab.push( React.createElement("span", null, "   ") );
+			}
+			
+			if (tab.length <= 0) tab = null;
+			
+			return ( React.createElement("span", null, tab, str) );
+		},
+		
+		comment = function(lv, str) {		
+			return ( React.createElement("div", {className: "sty-comment"}, tab(lv, ""), "// ", str) );			
+		},
+		
+		newLine = function (lv, str, trailingComma) {
+			
+			str = tab(lv, str);
+			
+			if (trailingComma !== ",") trailingComma = null;
+		
+			return ( React.createElement("div", null, str, trailingComma) );			
 		};
+		
 	
 	var mkPPTSlideClass = function () {
 		
@@ -100,9 +138,9 @@
 				content : (
 					React.createElement("div", null, 
 						React.createElement("code", null, 
-							 formatHTML(React.createElement("span", null, "Frank Darabont")), 
+							 formatoHTML(React.createElement("span", null, "Frank Darabont")), 
 							React.createElement("br", null), 
-							 formatHTML(React.createElement("a", {href: "xyz.html"}, "The Shawshank Redemption")) 
+							 formatoHTML(React.createElement("a", {href: "xyz.html"}, "The Shawshank Redemption")) 
 						)
 					)
 				)
@@ -115,9 +153,9 @@
 				content : (
 					React.createElement("div", null, 
 						React.createElement("code", null, 
-							 formatHTML(React.createElement("span", {id: "director"}, "Frank Darabont")), 
+							 formatoHTML(React.createElement("span", {id: "director"}, "Frank Darabont")), 
 							React.createElement("br", null), 
-							 formatHTML(React.createElement("a", {id: "movie", href: "xyz.html"}, "The Shawshank Redemption")) 
+							 formatoHTML(React.createElement("a", {id: "movie", href: "xyz.html"}, "The Shawshank Redemption")) 
 						)
 					)
 				)
@@ -131,17 +169,17 @@
 					React.createElement("div", {className: "grid-parent grid-100"}, 
 					
 						React.createElement("code", {className: "grid-50"}, 
-							"{", React.createElement("br", null), 
+							 jsonHead(), 
 								"\"name\" : \"Jeremy Lin\",", React.createElement("br", null), 
-								"\"phone\" : \"123-456-789\"", React.createElement("br", null), 
-							"}"
+								"\"phone\" : \"123-456-789\"", 
+							 jsonEnd() 
 						), 
 						
 						React.createElement("code", {className: "grid-50"}, 
-							"{", React.createElement("br", null), 
+							 jsonHead(), 
 								"\"name\" : \"Jeremy Lin\",", React.createElement("br", null), 
-								"\"tel\" : \"123-456-789\"", React.createElement("br", null), 
-							"}"
+								"\"tel\" : \"123-456-789\"", 
+							 jsonEnd() 
 						)
 						
 					)
@@ -155,10 +193,10 @@
 				content : (
 					React.createElement("div", null, 					
 						React.createElement("code", null, 
-							"{", React.createElement("br", null), 
+							 jsonHead(), 
 								"\"name\" : \"Jeremy Lin\",", React.createElement("br", null), 
-								"\"phone\" / \"tel\" : \"123-456-789\"", React.createElement("br", null), 
-							"}"
+								"\"phone\" / \"tel\" : \"123-456-789\"", 
+							 jsonEnd() 
 						)						
 					)
 				)
@@ -176,9 +214,9 @@
 						), 
 						
 						React.createElement("code", {className: "sty-font-italic"}, 
-							 formatHTML(React.createElement("span", null, "Frank Darabont")), 
+							 formatoHTML(React.createElement("span", null, "Frank Darabont")), 
 							React.createElement("br", null), 
-							 formatHTML(React.createElement("a", {href: "xyz.html"}, "The Shawshank Redemption")) 
+							 formatoHTML(React.createElement("a", {href: "xyz.html"}, "The Shawshank Redemption")) 
 						), 
 						
 						React.createElement("p", {className: "lyt-margin-top-40x lyt-margin-bottom-10x"}, 
@@ -186,10 +224,10 @@
 						), 
 						
 						React.createElement("code", {className: "sty-font-italic"}, 
-							"{", React.createElement("br", null), 
+							 jsonHead(), 
 								"\"name\" : \"Jeremy Lin\",", React.createElement("br", null), 
-								"\"tel\" : \"123-456-789\"", React.createElement("br", null), 
-							"}"
+								"\"tel\" : \"123-456-789\"", 
+							 jsonEnd() 
 						)
 						
 					)
@@ -203,14 +241,14 @@
 				content : (
 					React.createElement("div", {className: "lyt-centerContent"}, 
 						React.createElement("code", {className: "lyt-margin-bottom-20x"}, 
-							"{", React.createElement("br", null), 
+							 jsonHead(), 
 								React.createElement("span", {className: "sty-highlight"}, "name : \"Jeremy Lin\""), ", page : \"http://linsanity.com\"", 
-							React.createElement("br", null), "}"
+							 jsonEnd() 
 						), 
 						React.createElement("code", null, 
-							"{", React.createElement("br", null), 
+							 jsonHead(), 
 								React.createElement("span", {className: "sty-highlight"}, "name : \"Linsanity\""), ", page : \"http://linsanity.com\"", 
-							React.createElement("br", null), "}"
+							 jsonEnd() 
 						)
 					)
 				)
@@ -234,11 +272,11 @@
 				content : (
 					React.createElement("div", {className: "lyt-centerContent lyt-margin-top-10x"}, 
 						React.createElement("code", null, 
-							"{", React.createElement("br", null), 
+							 jsonHead(), 
 								React.createElement("span", {className: "sty-highlight"}, "\"https://schema.org/name\""), " : \"Linsanity\",", 
 								React.createElement("br", null), 
 								React.createElement("span", {className: "sty-highlight"}, "\"https://schema.org/WebPage\""), " : \"http://linsanity.com\"", 
-							React.createElement("br", null), "}"
+							 jsonEnd() 
 						)
 					)
 				)
@@ -319,13 +357,7 @@
 							React.createElement("div", {className: "lyt-margin-bottom-15x"}, "Schema.org"), 
 
 							React.createElement("a", {href: "https://schema.org/"}, 
-								React.createElement("img", {src: "./img/schema_logo.jpg", 								
-									 className: "lyt-centerBlock", 									 
-									 style:  {
-										width : "80%",
-										minWidth : "200px"
-									 } }
-								)
+								React.createElement("img", {src: "./img/schema_logo.jpg", className: "lyt-centerImg"})
 							)
 
 						), 
@@ -335,13 +367,7 @@
 							React.createElement("div", {className: "lyt-margin-bottom-15x"}, "FOAF"), 
 							
 							React.createElement("a", {href: "http://www.foaf-project.org/"}, 
-								React.createElement("img", {src: "./img/foaf_logo.png", 
-									 className: "lyt-centerBlock", 
-									 style:  {
-										width : "80%",
-										minWidth : "200px"
-									 } }
-								)
+								React.createElement("img", {src: "./img/foaf_logo.png", className: "lyt-centerImg"})
 							)
 
 						)
@@ -349,8 +375,6 @@
 					)
 				)
 			});
-			
-env_dbg.dPoint=
 
 			slideData.push({
 			
@@ -362,8 +386,91 @@ env_dbg.dPoint=
 							"Data linked by" + ' ' +
 							" ", 
 							React.createElement("span", {className: "sty-highlight"}, "Algorithm"), 
-							"with",  
+							" " + ' ' +
+							"with" + ' ' + 
+							" ", 
 							React.createElement("span", {className: "sty-highlight"}, "Data Structure")
+						)
+					)
+				)
+			});
+
+			slideData.push({
+			
+				title : "Linking Data by JSON",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-20x"}, 							
+						React.createElement("a", {href: "http://json-ld.org/"}, 
+							React.createElement("img", {src: "./img/json_ld_logo_0.png", 
+							     className: "lyt-centerImg", 
+								 style: {
+									width : "250px"
+								 }}
+							)
+						)
+					)
+				)
+			});
+
+			slideData.push({
+			
+				title : "Context",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-20x lyt-centerContent"}, 
+						React.createElement("span", null, "Do you know ", React.createElement("a", {href: "https://en.wikipedia.org/wiki/LSB"}, "LSB"), " ?")
+					)
+				)
+			});
+
+			slideData.push({
+			
+				title : "Context",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-20x lyt-centerContent"}, 
+						React.createElement("code", null, 
+							 jsonHead(), 
+								React.createElement("span", {className: "sty-comment"}, "// Our context is the person.jsonld file"), 
+							React.createElement("br", null), 
+								"\"@contxt\" : ", React.createElement("a", {href: "./docs/person.jsonld"}, "\"http://foo.com/docs/person.jsonld\""), 
+							React.createElement("br", null), 
+								"\"name\" : \"Jeremy Lin\",", 
+							React.createElement("br", null), 
+								"\"email\" : \"jeremy.lin@example.com\"", 
+							 jsonEnd() 
+						)
+					)
+				)
+			});
+						
+env_dbg.dPoint=
+
+			slideData.push({
+			
+				title : "Compact IRI",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-20x lyt-centerContent"}, 
+						React.createElement("code", null, 
+							 jsonHead(), 
+								
+								 newLine(0, "\"@contxt\" :"), 
+								
+									 jsonHead(), 
+									
+										 newLine(1, "\"foaf\" : \"http://xmlns.com/foaf/0.1/\""), 
+									
+									 jsonEnd(","), 
+								
+								 comment(0, "\"@type\" : \"http://xmlns.com/foaf/0.1/Person\""), 
+								 newLine(0, "\"@type\": \"foaf:Person\"", ","), 
+								
+								 comment(0, "\"http://xmlns.com/foaf/0.1/name\" : \"Dave Longley\""), 
+								 newLine(0, "\"foaf:name\" : \"Dave Longley\""), 
+								
+							 jsonEnd() 
 						)
 					)
 				)
