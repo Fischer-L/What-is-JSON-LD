@@ -464,13 +464,16 @@
 					<div className="lyt-margin-top-20x lyt-centerContent">
 						<code>
 							{ objHead() }
-								<span className="sty-comment">&#47;&#47; Our context is the person.jsonld file</span>
-							<br/>
-								"@context" : <a href="./docs/person.jsonld">"http://foo.com/docs/person.jsonld"</a>
-							<br/>
-								"name" : "Jeremy Lin",
-							<br/>
-								"email" : "jeremy.lin@example.com"
+							
+								{ comment(1, "Our context is the person.jsonld file") }
+								<div>
+									{ tab(1, "") }"@context" : <a href="./docs/person.jsonld">"http://foo.com/docs/person.jsonld"</a>,
+								</div>
+								
+								{ newLine(1, "\"name\" : \"Jeremy Lin\"", ",") }
+								
+								{ newLine(1, "\"email\" : \"jeremy.lin@example.com\"") }
+								
 							{ objEnd() }
 						</code>
 					</div>
@@ -486,19 +489,19 @@
 						<code>
 							{ objHead() }
 								
-								{ newLine(0, "\"@context\" :") }
+								{ newLine(1, "\"@context\" :") }
 								
 									{ objHead(1) }
 									
-										{ newLine(1, "\"foaf\" : \"http://xmlns.com/foaf/0.1/\"") }
+										{ newLine(2, "\"foaf\" : \"http://xmlns.com/foaf/0.1/\"") }
 									
 									{ objEnd(1, ",") }
 								
-								{ comment(0, "\"@type\" : \"http://xmlns.com/foaf/0.1/Person\"") }
-								{ newLine(0, "\"@type\": \"foaf:Person\"", ",") }
+								{ comment(1, "\"@type\" : \"http://xmlns.com/foaf/0.1/Person\"") }
+								{ newLine(1, "\"@type\": \"foaf:Person\"", ",") }
 								
-								{ comment(0, "\"http://xmlns.com/foaf/0.1/name\" : \"Jeremy Lin\"") }
-								{ newLine(0, "\"foaf:name\" : \"Jeremy Lin\"") }
+								{ comment(1, "\"http://xmlns.com/foaf/0.1/name\" : \"Jeremy Lin\"") }
+								{ newLine(1, "\"foaf:name\" : \"Jeremy Lin\"") }
 								
 							{ objEnd() }
 						</code>
@@ -685,8 +688,6 @@
 					</div>
 				)
 			});	
-			
-env_dbg.dPoint=
 
 			slideData.push({
 			
@@ -835,6 +836,64 @@ env_dbg.dPoint=
 									{ arrEnd(1) }
 								
 							{ objEnd() }
+						</code>				
+					</div>
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Compacted",
+				
+				content : (
+					<div className="lyt-margin-top-20x lyt-centerContent">
+						<code>
+							{ objHead() }
+								
+								{ newLine(1, "\"@context\" :") }
+									
+									{ objHead(1) }
+										
+										{ newLine(2, "\"name\" : \"http://xmlns.com/foaf/0.1/name\"", ",") }
+										{ newLine(2, "\"gender\" : \"http://schema.org/gender\"") }
+										
+									{ objEnd(1, ",") }
+								
+								{ newLine(1, "\"name\" : \"Jeremy Lin\"", ",") }
+								{ newLine(1, "\"gender\" : \"Male\"") }
+								
+							{ objEnd() }
+						</code>				
+					</div>
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Expanded",
+				
+				content : (
+					<div className="lyt-margin-top-20x lyt-centerContent">
+						<code>
+							{ objHead() }
+								
+								{ newLine(1, "\"http://xmlns.com/foaf/0.1/name\" : \"Jeremy Lin\"", ",") }
+								{ newLine(1, "\"http://schema.org/gender\" : \"Male\"") }
+								
+							{ objEnd() }
+						</code>				
+					</div>
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Inside HTML",
+				
+				content : (
+					<div className="lyt-margin-top-20x lyt-centerContent">
+						<code>
+							{ formatoHTML(<script type="application/ld+json"> ... </script>) }
 						</code>				
 					</div>
 				)

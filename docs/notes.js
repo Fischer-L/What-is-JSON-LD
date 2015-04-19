@@ -295,15 +295,15 @@ var notes = {
 		* Forms : {
 			
 			* Compacted : {
-				"@context": {
-					"name": "http://xmlns.com/foaf/0.1/name",
-					"homepage": {
-						"@id": "http://xmlns.com/foaf/0.1/homepage",
-						"@type": "@id"
+				"@context" : {
+					"name" : "http://xmlns.com/foaf/0.1/name",
+					"homepage" : {
+						"@id" : "http://xmlns.com/foaf/0.1/homepage",
+						"@type" : "@id"
 					}
 				},
-				"name": "Jeremy Lin",
-				"homepage": "http://en.wikipedia.org/wiki/Jeremy_Lin"
+				"name" : "Jeremy Lin",
+				"homepage" : "http://en.wikipedia.org/wiki/Jeremy_Lin"
 			},
 			
 			* Expanded : {				

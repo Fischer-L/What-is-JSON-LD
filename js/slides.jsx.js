@@ -464,13 +464,16 @@
 					React.createElement("div", {className: "lyt-margin-top-20x lyt-centerContent"}, 
 						React.createElement("code", null, 
 							 objHead(), 
-								React.createElement("span", {className: "sty-comment"}, "// Our context is the person.jsonld file"), 
-							React.createElement("br", null), 
-								"\"@context\" : ", React.createElement("a", {href: "./docs/person.jsonld"}, "\"http://foo.com/docs/person.jsonld\""), 
-							React.createElement("br", null), 
-								"\"name\" : \"Jeremy Lin\",", 
-							React.createElement("br", null), 
-								"\"email\" : \"jeremy.lin@example.com\"", 
+							
+								 comment(1, "Our context is the person.jsonld file"), 
+								React.createElement("div", null, 
+									 tab(1, ""), "\"@context\" : ", React.createElement("a", {href: "./docs/person.jsonld"}, "\"http://foo.com/docs/person.jsonld\""), ","
+								), 
+								
+								 newLine(1, "\"name\" : \"Jeremy Lin\"", ","), 
+								
+								 newLine(1, "\"email\" : \"jeremy.lin@example.com\""), 
+								
 							 objEnd() 
 						)
 					)
@@ -486,19 +489,19 @@
 						React.createElement("code", null, 
 							 objHead(), 
 								
-								 newLine(0, "\"@context\" :"), 
+								 newLine(1, "\"@context\" :"), 
 								
 									 objHead(1), 
 									
-										 newLine(1, "\"foaf\" : \"http://xmlns.com/foaf/0.1/\""), 
+										 newLine(2, "\"foaf\" : \"http://xmlns.com/foaf/0.1/\""), 
 									
 									 objEnd(1, ","), 
 								
-								 comment(0, "\"@type\" : \"http://xmlns.com/foaf/0.1/Person\""), 
-								 newLine(0, "\"@type\": \"foaf:Person\"", ","), 
+								 comment(1, "\"@type\" : \"http://xmlns.com/foaf/0.1/Person\""), 
+								 newLine(1, "\"@type\": \"foaf:Person\"", ","), 
 								
-								 comment(0, "\"http://xmlns.com/foaf/0.1/name\" : \"Jeremy Lin\""), 
-								 newLine(0, "\"foaf:name\" : \"Jeremy Lin\""), 
+								 comment(1, "\"http://xmlns.com/foaf/0.1/name\" : \"Jeremy Lin\""), 
+								 newLine(1, "\"foaf:name\" : \"Jeremy Lin\""), 
 								
 							 objEnd() 
 						)
@@ -685,8 +688,6 @@
 					)
 				)
 			});	
-			
-env_dbg.dPoint=
 
 			slideData.push({
 			
@@ -818,7 +819,7 @@ env_dbg.dPoint=
 											
 											 newLine(3, "\"name\" : \"Lin\"", ","), 
 											
-											 newLine(2, "\"knows\" : \"http://foo.com/kobe\""), 
+											 newLine(3, "\"knows\" : \"http://foo.com/kobe\""), 
 											
 										 objEnd(2, ","), 
 									
@@ -828,13 +829,71 @@ env_dbg.dPoint=
 											
 											 newLine(3, "\"name\" : \"kobe\"", ","), 
 											
-											 newLine(2, "\"knows\" : \"http://foo.com/jeremy_lin\""), 
+											 newLine(3, "\"knows\" : \"http://foo.com/jeremy_lin\""), 
 											
 										 objEnd(2), 
 									
 									 arrEnd(1), 
 								
 							 objEnd() 
+						)				
+					)
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Compacted",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-20x lyt-centerContent"}, 
+						React.createElement("code", null, 
+							 objHead(), 
+								
+								 newLine(1, "\"@context\" :"), 
+									
+									 objHead(1), 
+										
+										 newLine(2, "\"name\" : \"http://xmlns.com/foaf/0.1/name\"", ","), 
+										 newLine(2, "\"gender\" : \"http://schema.org/gender\""), 
+										
+									 objEnd(1, ","), 
+								
+								 newLine(1, "\"name\" : \"Jeremy Lin\"", ","), 
+								 newLine(1, "\"gender\" : \"Male\""), 
+								
+							 objEnd() 
+						)				
+					)
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Expanded",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-20x lyt-centerContent"}, 
+						React.createElement("code", null, 
+							 objHead(), 
+								
+								 newLine(1, "\"http://xmlns.com/foaf/0.1/name\" : \"Jeremy Lin\"", ","), 
+								 newLine(1, "\"http://schema.org/gender\" : \"Male\""), 
+								
+							 objEnd() 
+						)				
+					)
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Inside HTML",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-20x lyt-centerContent"}, 
+						React.createElement("code", null, 
+							 formatoHTML(React.createElement("script", {type: "application/ld+json"}, " ... ")) 
 						)				
 					)
 				)
