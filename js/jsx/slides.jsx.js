@@ -8,8 +8,13 @@
 		
 		env_dbg = ppt.masterDBG.newLocDBG(true),
 		
-		env_classNames = ppt.CONST.classNames;
+		env_classNames = ppt.CONST.classNames,
 		
+		formatHTML = function (v) {	
+		
+			return React.renderToStaticMarkup(v);
+		};
+	
 	var mkPPTSlideClass = function () {
 		
 			/*	React props:
@@ -73,30 +78,95 @@
 		};
 	
 	var slideData = []; {
-	
+		
+			env_dbg.dPoint = // env_dbg.dPoint marks the starting point for debugging slides 	
 			slideData.push({
 			
-				title : "1st",
+				title : "JSON-LD",
 				
-				content : <div>This is the 1st slide</div>
+				content : (
+					<div className="lyt-centerContent">						
+						<div className="lyt-margin-bottom-20x">
+							Fischer @ <a href="https://github.com/Fischer-L">https://github.com/Fischer-L</a>
+						</div>					
+						2015.04
+					</div>
+				)
 			});
 	
 			slideData.push({
 			
-				title : "2nd",
+				title : "What is this ?",
 				
-				content : <div>This is the 2nd slide</div>
+				content : (
+					<div>
+						<code>
+							{ formatHTML(<span>Frank Darabont</span>) }
+							<br/>
+							{ formatHTML(<span>The Shawshank Redemption</span>) }
+						</code>
+					</div>
+				)
 			});
 	
 			slideData.push({
 			
-				title : "3rd",
+				title : "This is",
 				
-				content : <div>This is the 3rd slide</div>
+				content : (
+					<div>
+						<code>
+							{ formatHTML(<span id="director">Frank Darabont</span>) }
+							<br/>
+							{ formatHTML(<span id="movie">The Shawshank Redemption</span>) }
+						</code>
+					</div>
+				)
+			});
+	
+			env_dbg.dPoint = slideData.push({
+			
+				title : "And what are these ?",
+				
+				content : (
+					<div className="grid-parent grid-100">
+					
+						<code className="grid-50">
+							&#123;<br/>
+								"name" : "Jeremy Lin",<br/>
+								"phone" : "123-456-789"<br/>
+							&#125;
+						</code>
+						
+						<code className="grid-50">
+							&#123;<br/>
+								"name" : "Jeremy Lin",<br/>
+								"tel" : "123-456-789"<br/>
+							&#125;
+						</code>
+						
+					</div>
+				)
+			});
+	
+			slideData.push({
+			
+				title : "These are",
+				
+				content : (
+					<div>					
+						<code>
+							&#123;<br/>
+								"name" : "Jeremy Lin",<br/>
+								"phone" / "tel" : "123-456-789"<br/>
+							&#125;
+						</code>						
+					</div>
+				)
 			});
 		}
 	
-	var i = 0,
+	var i = env_dbg.isDBG() ? env_dbg.dPoint - 1 : 0,
 		
 		com,
 		

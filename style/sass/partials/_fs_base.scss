@@ -6,6 +6,9 @@ $unsemantic-ie7-support: false;
 @import "unsemantic-grid-responsive";
 
 $font-color : #f0f0f0;
+$font-family : sans-serif;
+$font-size-m : 1rem;
+$margin-base-unit : 2px;
 
 // Func:
 //		Get font sizes of h tags
@@ -38,7 +41,7 @@ $font-color : #f0f0f0;
 		$weight : 1.5;
 	}
 	
-	@return $weight * 1rem;
+	@return $weight * $font-size-m;
 }
 
 @mixin fs-master-container-width {
@@ -89,6 +92,10 @@ html {
 	
 	background : #303030;
 	@include background(radial-gradient(circle, #5f5f5f, #303030));
+	
+	&, code, pre {
+		font-family : $font-family;
+	}
 }
 
 body {
@@ -120,6 +127,8 @@ h2 {
 h1 {
 	font-size : fs-get-h-tag-font-size(1);
 }
+
+// -- Web modules -- //
 
 .ppt {
 /*	== PPT module ==
@@ -199,3 +208,55 @@ h1 {
 	}
 }
 
+// !-- Web modules -- //
+
+// -- Reusable object -- //
+
+.lyt { // Layout object
+
+	&-remark {
+		font-size : 0.7rem;
+		display : none;
+		
+		.showRemark & {
+			display : block;
+		}
+	}
+	
+	&-centerContent {
+		@include fs-flex-column-xCenter;
+	}
+	
+	@for $i from 1 through 20 { // Create &-margin-???-1x/2x/3x...
+	
+		&-margin-top-#{$i}x {			
+			margin-top : $i * $margin-base-unit;
+		}
+	
+		&-margin-right-#{$i}x {			
+			margin-right : $i * $margin-base-unit;
+		}
+	
+		&-margin-bottom-#{$i}x {			
+			margin-bottom : $i * $margin-base-unit;
+		}
+	
+		&-margin-left-#{$i}x {			
+			margin-left : $i * $margin-base-unit;
+		}
+	}
+}
+
+.sty { // Styling object
+	
+	&-font-size-s {
+		font-size : 0.9 * $font-size-m;
+	}
+	
+	&-font-size-m {
+		font-size : $font-size-m;
+	}
+	
+}
+
+// !-- Reusable styles -- //

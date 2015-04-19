@@ -8,8 +8,13 @@
 		
 		env_dbg = ppt.masterDBG.newLocDBG(true),
 		
-		env_classNames = ppt.CONST.classNames;
+		env_classNames = ppt.CONST.classNames,
 		
+		formatHTML = function (v) {	
+		
+			return React.renderToStaticMarkup(v);
+		};
+	
 	var mkPPTSlideClass = function () {
 		
 			/*	React props:
@@ -73,30 +78,95 @@
 		};
 	
 	var slideData = []; {
-	
+		
+			env_dbg.dPoint = // env_dbg.dPoint marks the starting point for debugging slides 	
 			slideData.push({
 			
-				title : "1st",
+				title : "JSON-LD",
 				
-				content : React.createElement("div", null, "This is the 1st slide")
+				content : (
+					React.createElement("div", {className: "lyt-centerContent"}, 						
+						React.createElement("div", {className: "lyt-margin-bottom-20x"}, 
+							"Fischer @ ", React.createElement("a", {href: "https://github.com/Fischer-L"}, "https://github.com/Fischer-L")
+						), 
+						"2015.04"
+					)
+				)
 			});
 	
 			slideData.push({
 			
-				title : "2nd",
+				title : "What is this ?",
 				
-				content : React.createElement("div", null, "This is the 2nd slide")
+				content : (
+					React.createElement("div", null, 
+						React.createElement("code", null, 
+							 formatHTML(React.createElement("span", null, "Frank Darabont")), 
+							React.createElement("br", null), 
+							 formatHTML(React.createElement("span", null, "The Shawshank Redemption")) 
+						)
+					)
+				)
 			});
 	
 			slideData.push({
 			
-				title : "3rd",
+				title : "This is",
 				
-				content : React.createElement("div", null, "This is the 3rd slide")
+				content : (
+					React.createElement("div", null, 
+						React.createElement("code", null, 
+							 formatHTML(React.createElement("span", {id: "director"}, "Frank Darabont")), 
+							React.createElement("br", null), 
+							 formatHTML(React.createElement("span", {id: "movie"}, "The Shawshank Redemption")) 
+						)
+					)
+				)
+			});
+	
+			env_dbg.dPoint = slideData.push({
+			
+				title : "And what are these ?",
+				
+				content : (
+					React.createElement("div", {className: "grid-parent grid-100"}, 
+					
+						React.createElement("code", {className: "grid-50 sty-font-size-s"}, 
+							"{", React.createElement("br", null), 
+								"\"name\" : \"Jeremy Lin\",", React.createElement("br", null), 
+								"\"phone\" : \"123-456-789\"", React.createElement("br", null), 
+							"}"
+						), 
+						
+						React.createElement("code", {className: "grid-50 sty-font-size-s"}, 
+							"{", React.createElement("br", null), 
+								"\"name\" : \"Jeremy Lin\",", React.createElement("br", null), 
+								"\"tel\" : \"123-456-789\"", React.createElement("br", null), 
+							"}"
+						)
+						
+					)
+				)
+			});
+	
+			slideData.push({
+			
+				title : "These are",
+				
+				content : (
+					React.createElement("div", null, 					
+						React.createElement("code", null, 
+							"{", React.createElement("br", null), 
+								"\"name\" : \"Jeremy Lin\",", React.createElement("br", null), 
+								"\"phone/tel\" : \"123-456-789\"", React.createElement("br", null), 
+							"}"
+						)						
+					)
+				)
 			});
 		}
 	
-	var i = 0,
+	var i = env_dbg.isDBG() ? env_dbg.dPoint - 1 : 0,
 		
 		com,
 		
