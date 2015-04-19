@@ -180,11 +180,28 @@ var notes = {
 					
 					* Example : {
 					
-						"@context" : { ... },
+						"@context" : {
+
+							...,
+							
+							"knows": {
+								"@id": "http://xmlns.com/foaf/0.1/knows",
+								"@type": "@id"
+							}
+						},
+							
+						"@id" : "http://foo.com/jeremy_lin",
+						
+						"@type" : "foaf:Person",
 						
 						"name" : "Lin",
 						
-						"knows" : {							
+						"knows" : {
+							
+							"@id" : "http://foo.com/kobe",
+							
+							"@type" : "foaf:Person",
+							
 							"name" : "kobe"
 						}
 					}
