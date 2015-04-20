@@ -992,8 +992,6 @@
 				)
 			});
 			
-env_dbg.dPoint =
-			
 			slideData.push({
 			
 				title : "Tools !!!",
@@ -1034,7 +1032,7 @@ env_dbg.dPoint =
 				content : (
 					React.createElement("div", {className: "lyt-margin-top-30x grid-parent grid-100 mobile-grid-100"}, 
 						
-						React.createElement("ul", {className: "lyt-centerBlock", style: { width : "70%"}}, 
+						React.createElement("ul", {className: "lyt-centerBlock", style: { width : "40%"}}, 
 							
 							React.createElement("li", {className: "lyt-margin-bottom-10x"}, "Examples"), 
 							
@@ -1058,7 +1056,7 @@ env_dbg.dPoint =
 				content : (
 					React.createElement("div", {className: "lyt-margin-top-30x grid-parent grid-100 mobile-grid-100"}, 
 						
-						React.createElement("ul", {className: "lyt-centerBlock", style: { width : "70%"}}, 
+						React.createElement("ul", {className: "lyt-centerBlock", style: { width : "50%"}}, 
 							
 							React.createElement("li", {className: "lyt-margin-bottom-10x"}, "REST API supported"), 
 							
@@ -1094,8 +1092,74 @@ env_dbg.dPoint =
 					)
 				)
 			});
+			
+			slideData.push({
+			
+				title : "jsonld.js",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-30x grid-parent grid-100 mobile-grid-100"}, 
+						
+						React.createElement("ul", {className: "lyt-centerBlock", style: { width : "70%"}}, 
+							
+							React.createElement("li", {className: "lyt-margin-bottom-10x"}, "A Javascript of JSON processor and API"), 
+							
+							React.createElement("li", null, 
+								React.createElement("a", {href: "https://github.com/digitalbazaar/jsonld.js"}, 
+									 newLine(0, "https://github.com/digitalbazaar/jsonld.js") 
+								)
+							)
+							
+						)
+					)
+				)
+			});
+			
+			slideData.push({
+			
+				title : "References",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-30x lyt-centerContent"}, 						
+						React.createElement("ul", null, 						
+							
+								(function () {
+									var lis = [];
+									
+									[
+										"http://json-ld.org/",									
+										"https://schema.org/",								
+										"http://www.w3.org/TR/json-ld/",							
+										"http://en.wikipedia.org/wiki/JSON-LD",									
+										"http://semanticweb.org/wiki/Main_Page",									
+										"http://en.wikipedia.org/wiki/Schema.org",									
+										"http://en.wikipedia.org/wiki/Linked_data",									
+										"http://en.wikipedia.org/wiki/Resource_Description_Framework",								
+										"http://www.slideshare.net/gkellogg1/json-for-linked-data?next_slideshow=1"
+										
+									].forEach(function (url, i, urls) {
+										
+										lis.push(							
+											React.createElement("li", {className: "lyt-margin-bottom-5x"}, 
+												React.createElement("a", {href: url}, 
+													 newLine(0, url) 
+												)
+											)									
+										);
+									});
+									
+									return lis;
+								})()
+														
+						)						
+					)
+				)
+			});
 		}
-		
+	
+	/*
+	 * Add the slides into the ppt
+	 */
 	var i = env_dbg.isDBG() ? env_dbg.dPoint - 1 : 0,
 		
 		com,
@@ -1112,7 +1176,7 @@ env_dbg.dPoint =
 			
 			{
 				_render : {
-					slideTitle : slideData[i].title,	
+					slideTitle : slideData[i].title,
 					slideContent : slideData[i].content,
 					slideCount : (i == 0) ? null : i
 				}

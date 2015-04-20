@@ -713,12 +713,12 @@
 									
 									{ objHead(1) }
 										
-										{ newLine(2, "knows :") }
+										{ highlit(2, "knows :") }
 										
 											{ objHead(2) }
 												
 												{ newLine(3, "\"@id\" : \"http://xmlns.com/foaf/0.1/knows\"", ",") }
-												{ highlit(3, "\"@type\" : \"@id\"") }
+												{ newLine(3, "\"@type\" : \"@id\"") }
 												
 											{ objEnd(2) }
 										
@@ -992,8 +992,6 @@
 				)
 			});
 			
-env_dbg.dPoint =
-			
 			slideData.push({
 			
 				title : "Tools !!!",
@@ -1012,7 +1010,7 @@ env_dbg.dPoint =
 				content : (
 					<div className="lyt-margin-top-30x grid-parent grid-100 mobile-grid-100">
 						
-						<ul className="lyt-centerBlock" style={{ width : "70%" }} >
+						<ul className="lyt-centerBlock" style={{ width : "60%" }} >
 							
 							<li className="lyt-margin-bottom-10x">Play with examples</li>
 							
@@ -1034,7 +1032,7 @@ env_dbg.dPoint =
 				content : (
 					<div className="lyt-margin-top-30x grid-parent grid-100 mobile-grid-100">
 						
-						<ul className="lyt-centerBlock" style={{ width : "40%" }} >
+						<ul className="lyt-centerBlock" style={{ width : "36%" }} >
 							
 							<li className="lyt-margin-bottom-10x">Examples</li>
 							
@@ -1113,6 +1111,47 @@ env_dbg.dPoint =
 							</li>
 							
 						</ul>
+					</div>
+				)
+			});
+			
+			slideData.push({
+			
+				title : "References",
+				
+				content : (
+					<div className="lyt-margin-top-30x lyt-centerContent">						
+						<ul>						
+							{
+								(function () {
+									var lis = [];
+									
+									[
+										"http://json-ld.org/",									
+										"https://schema.org/",								
+										"http://www.w3.org/TR/json-ld/",							
+										"http://en.wikipedia.org/wiki/JSON-LD",									
+										"http://semanticweb.org/wiki/Main_Page",									
+										"http://en.wikipedia.org/wiki/Schema.org",									
+										"http://en.wikipedia.org/wiki/Linked_data",									
+										"http://en.wikipedia.org/wiki/Resource_Description_Framework",								
+										"http://www.slideshare.net/gkellogg1/json-for-linked-data?next_slideshow=1"
+										
+									].forEach(function (url, i, urls) {
+										
+										lis.push(							
+											<li className="lyt-margin-bottom-5x">
+												<a href={url}>
+													{ newLine(0, url) }
+												</a>
+											</li>									
+										);
+									});
+									
+									return lis;
+								})()
+							}							
+						</ul>						
 					</div>
 				)
 			});

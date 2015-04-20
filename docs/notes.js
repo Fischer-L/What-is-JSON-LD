@@ -436,26 +436,26 @@ var notes = {
 	}
 	
 	Ref : {
+		
+		"http://json-ld.org/",
+		
+		"https://schema.org/",
 	
 		"http://www.w3.org/TR/json-ld/",
-	
-		"http://www.slideshare.net/gkellogg1/json-for-linked-data?next_slideshow=1",
 		
-		"http://json-ld.org/learn.html",
-		
-		"http://en.wikipedia.org/wiki/Schema.org",
+		"http://seo.dns.com.tw/?p=2372",
 		
 		"http://en.wikipedia.org/wiki/JSON-LD",
+		
+		"http://semanticweb.org/wiki/Main_Page",
+		
+		"http://en.wikipedia.org/wiki/Schema.org",
 		
 		"http://en.wikipedia.org/wiki/Linked_data",
 		
 		"http://en.wikipedia.org/wiki/Resource_Description_Framework",
-		
-		"https://schema.org/"
-		
-		"http://seo.dns.com.tw/?p=2372"
-		
-		"http://semanticweb.org/wiki/Main_Page"
+	
+		"http://www.slideshare.net/gkellogg1/json-for-linked-data?next_slideshow=1"
 	}
 }
 

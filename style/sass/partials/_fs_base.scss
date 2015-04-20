@@ -8,6 +8,11 @@ $unsemantic-ie7-support: false;
 $font-color : #f0f0f0;
 $font-family : sans-serif;
 $font-size-m : 1rem;
+
+$color-link : #93CDDD;
+$color-comment : #C3D69B;
+$color-highlight : #D99694;
+
 $margin-base-unit : 2px;
 
 // Func:
@@ -84,6 +89,7 @@ $margin-base-unit : 2px;
 @mixin fs-grid ($perc) {
 	@extend .grid-#{$perc}, .mobile-grid-#{$perc};
 }
+
 @mixin fs-grid-prarent ($perc) {
 	@extend .grid-parent;
 	@include fs-grid($perc);
@@ -92,7 +98,6 @@ $margin-base-unit : 2px;
 @mixin fs-grid-100 {
 	@include fs-grid-prarent(100);
 }
-
 
 html {
 	font-size : 18px;
@@ -135,6 +140,10 @@ h2 {
 
 h1 {
 	font-size : fs-get-h-tag-font-size(1);
+}
+	
+a, a:hover, a:visited {
+	color : $color-link;
 }
 
 // -- Web modules -- //
@@ -310,11 +319,11 @@ h1 {
 	}
 	
 	&-comment {
-		// TODO
+		color : $color-comment;
 	}
 	
 	&-highlight {
-		// TODO
+		color : $color-highlight;
 	}
 }
 
