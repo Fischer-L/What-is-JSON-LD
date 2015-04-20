@@ -1117,7 +1117,10 @@ env_dbg.dPoint =
 				)
 			});
 		}
-		
+	
+	/*
+	 * Add the slides into the ppt
+	 */
 	var i = env_dbg.isDBG() ? env_dbg.dPoint - 1 : 0,
 		
 		com,
@@ -1134,7 +1137,7 @@ env_dbg.dPoint =
 			
 			{
 				_render : {
-					slideTitle : slideData[i].title,	
+					slideTitle : slideData[i].title,
 					slideContent : slideData[i].content,
 					slideCount : (i == 0) ? null : i
 				}
