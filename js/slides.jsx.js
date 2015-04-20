@@ -948,8 +948,6 @@
 				)
 			});
 			
-env_dbg.dPoint =
-			
 			slideData.push({
 			
 				title : "Music album in HTML",
@@ -990,6 +988,109 @@ env_dbg.dPoint =
 				content : (
 					React.createElement("div", {className: "lyt-margin-top-30x lyt-centerContent"}, 
 						React.createElement("img", {src: "./img/confused_baby.png", className: "lyt-centerImg"})
+					)
+				)
+			});
+			
+env_dbg.dPoint =
+			
+			slideData.push({
+			
+				title : "Tools !!!",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-30x lyt-centerContent"}, 
+						React.createElement("img", {src: "./img/happy_minions.jpg", className: "lyt-centerImg"})
+					)
+				)
+			});
+			
+			slideData.push({
+			
+				title : "JSON-LD Playground",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-30x grid-parent grid-100 mobile-grid-100"}, 
+						
+						React.createElement("ul", {className: "lyt-centerBlock", style: { width : "70%"}}, 
+							
+							React.createElement("li", {className: "lyt-margin-bottom-10x"}, "Play with examples"), 
+							
+							React.createElement("li", null, 
+								React.createElement("a", {href: "http://json-ld.org/playground/index.html"}, 
+									 newLine(0, "http://json-ld.org/playground/index.html") 
+								)
+							)
+							
+						)
+					)
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Schema.org",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-30x grid-parent grid-100 mobile-grid-100"}, 
+						
+						React.createElement("ul", {className: "lyt-centerBlock", style: { width : "70%"}}, 
+							
+							React.createElement("li", {className: "lyt-margin-bottom-10x"}, "Examples"), 
+							
+							React.createElement("li", {className: "lyt-margin-bottom-10x"}, "Type definition"), 
+							
+							React.createElement("li", null, 
+								React.createElement("a", {href: "https://schema.org/"}, 
+									 newLine(0, "https://schema.org/") 
+								)
+							)
+							
+						)
+					)
+				)
+			});
+			
+			slideData.push({
+			
+				title : "RDF Translator",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-30x grid-parent grid-100 mobile-grid-100"}, 
+						
+						React.createElement("ul", {className: "lyt-centerBlock", style: { width : "70%"}}, 
+							
+							React.createElement("li", {className: "lyt-margin-bottom-10x"}, "REST API supported"), 
+							
+							React.createElement("li", null, 
+								React.createElement("a", {href: "http://rdf-translator.appspot.com/"}, 
+									 newLine(0, "http://rdf-translator.appspot.com/") 
+								)
+							)
+							
+						)
+					)
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Apache Jena",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-30x grid-parent grid-100 mobile-grid-100"}, 
+						
+						React.createElement("ul", {className: "lyt-centerBlock", style: { width : "70%"}}, 
+							
+							React.createElement("li", {className: "lyt-margin-bottom-10x"}, "A Java framework for processing RDF data"), 
+							
+							React.createElement("li", null, 
+								React.createElement("a", {href: "http://jena.apache.org/index.html"}, 
+									 newLine(0, "http://jena.apache.org/index.html") 
+								)
+							)
+							
+						)
 					)
 				)
 			});

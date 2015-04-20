@@ -1004,6 +1004,118 @@ env_dbg.dPoint =
 					</div>
 				)
 			});
+			
+			slideData.push({
+			
+				title : "JSON-LD Playground",
+				
+				content : (
+					<div className="lyt-margin-top-30x grid-parent grid-100 mobile-grid-100">
+						
+						<ul className="lyt-centerBlock" style={{ width : "70%" }} >
+							
+							<li className="lyt-margin-bottom-10x">Play with examples</li>
+							
+							<li>
+								<a href="http://json-ld.org/playground/index.html">
+									{ newLine(0, "http://json-ld.org/playground/index.html") }
+								</a>
+							</li>
+							
+						</ul>
+					</div>
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Schema.org",
+				
+				content : (
+					<div className="lyt-margin-top-30x grid-parent grid-100 mobile-grid-100">
+						
+						<ul className="lyt-centerBlock" style={{ width : "40%" }} >
+							
+							<li className="lyt-margin-bottom-10x">Examples</li>
+							
+							<li className="lyt-margin-bottom-10x">Type definition</li>
+							
+							<li>
+								<a href="https://schema.org/">
+									{ newLine(0, "https://schema.org/") }
+								</a>
+							</li>
+							
+						</ul>
+					</div>
+				)
+			});
+			
+			slideData.push({
+			
+				title : "RDF Translator",
+				
+				content : (
+					<div className="lyt-margin-top-30x grid-parent grid-100 mobile-grid-100">
+						
+						<ul className="lyt-centerBlock" style={{ width : "50%" }} >
+							
+							<li className="lyt-margin-bottom-10x">REST API supported</li>
+							
+							<li>
+								<a href="http://rdf-translator.appspot.com/">
+									{ newLine(0, "http://rdf-translator.appspot.com/") }
+								</a>
+							</li>
+							
+						</ul>
+					</div>
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Apache Jena",
+				
+				content : (
+					<div className="lyt-margin-top-30x grid-parent grid-100 mobile-grid-100">
+						
+						<ul className="lyt-centerBlock" style={{ width : "70%" }} >
+							
+							<li className="lyt-margin-bottom-10x">A Java framework for processing RDF data</li>
+							
+							<li>
+								<a href="http://jena.apache.org/index.html">
+									{ newLine(0, "http://jena.apache.org/index.html") }
+								</a>
+							</li>
+							
+						</ul>
+					</div>
+				)
+			});
+			
+			slideData.push({
+			
+				title : "jsonld.js",
+				
+				content : (
+					<div className="lyt-margin-top-30x grid-parent grid-100 mobile-grid-100">
+						
+						<ul className="lyt-centerBlock" style={{ width : "70%" }} >
+							
+							<li className="lyt-margin-bottom-10x">A Javascript of JSON processor and API</li>
+							
+							<li>
+								<a href="https://github.com/digitalbazaar/jsonld.js">
+									{ newLine(0, "https://github.com/digitalbazaar/jsonld.js") }
+								</a>
+							</li>
+							
+						</ul>
+					</div>
+				)
+			});
 		}
 		
 	var i = env_dbg.isDBG() ? env_dbg.dPoint - 1 : 0,

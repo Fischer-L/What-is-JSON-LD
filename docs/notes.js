@@ -323,15 +323,15 @@ var notes = {
 		
 	},
 	
-	More Linked Data Syntax : {
+	More Linked Data : {
+		
+		* Semantic Web : http://en.wikipedia.org/wiki/Semantic_Web#Standards
 	
 		* RDF/XML : http://en.wikipedia.org/wiki/N-Triples#Example
 		
 		* RDFa : http://en.wikipedia.org/wiki/RDFa#Examples
 		
 		* N-Triples : http://en.wikipedia.org/wiki/N-Triples#Example
-		
-		* Semantic Web : http://en.wikipedia.org/wiki/Semantic_Web#Standards
 		
 		* Examples : {		
 	
@@ -427,6 +427,11 @@ var notes = {
 		* Apache Jena : {
 			* A Java framework for processing RDF data
 			* http://jena.apache.org/index.html
+		}
+		
+		* jsonld.js : {
+			* A Javascript of JSON processor and API			
+			* https://github.com/digitalbazaar/jsonld.js
 		}
 	}
 	
