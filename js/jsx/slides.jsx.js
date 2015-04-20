@@ -899,8 +899,6 @@
 				)
 			});
 			
-env_dbg.dPoint =
-			
 			slideData.push({
 			
 				title : "",
@@ -946,6 +944,63 @@ env_dbg.dPoint =
 						<div>
 							and more...
 						</div>
+					</div>
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Music album in HTML",
+				
+				content : (
+					<div className="lyt-margin-top-30x lyt-centerContent">
+						<img src="./img/example_music_html.jpg" className="lyt-centerImg" />
+					</div>
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Music album in RDFa",
+				
+				content : (
+					<div className="lyt-margin-top-30x lyt-centerContent">
+						<img src="./img/example_music_rdfa.jpg" className="lyt-centerImg" />
+					</div>
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Music album in JSON-LD",
+				
+				content : (
+					<div className="lyt-margin-top-30x lyt-centerContent">
+						<img src="./img/example_music_jsonld.jpg" className="lyt-centerImg" />
+					</div>
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Too semantic !?",
+				
+				content : (
+					<div className="lyt-margin-top-30x lyt-centerContent">
+						<img src="./img/confused_baby.png" className="lyt-centerImg" />
+					</div>
+				)
+			});
+			
+env_dbg.dPoint =
+			
+			slideData.push({
+			
+				title : "Tools !!!",
+				
+				content : (
+					<div className="lyt-margin-top-30x lyt-centerContent">
+						<img src="./img/happy_minions.jpg" className="lyt-centerImg" />
 					</div>
 				)
 			});

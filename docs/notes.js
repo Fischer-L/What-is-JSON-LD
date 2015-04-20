@@ -319,7 +319,7 @@ var notes = {
 					// Your JSON-LD content
 				}
 			</script>
-		},
+		}
 		
 	},
 	
@@ -332,6 +332,78 @@ var notes = {
 		* N-Triples : http://en.wikipedia.org/wiki/N-Triples#Example
 		
 		* Semantic Web : http://en.wikipedia.org/wiki/Semantic_Web#Standards
+		
+		* Examples : {		
+	
+			* HTML : {
+				
+				<div class="music-alblum">
+					
+					<h3 class="music-alblum-name">Maroon 5 album</h3>
+					
+					<ol class="music-alblum-tracks">
+						
+						...
+						
+						<li class="music-alblum-tracks-song">Sugar</li>
+						
+						...
+						
+					</ol>
+					
+				</div>
+			},
+			
+			* JSON-LD : {
+				"@context": "http://schema.org",
+				"@type" : "MusicAlbum",
+				"name" : "Maroon 5 album",
+				"track" : {
+					 "@type": "ItemList",
+					 "numberOfItems": 11,
+					 "itemListElement": [
+						...,
+						{
+							"@type": "ListItem",
+							"position": 5,
+							"item": {
+							  "@type": "MusicRecording",
+							  "name": "Sugar"
+							}
+						},
+						...
+					 ]
+				}
+			},
+			
+			*RDFa : {
+				<div xmlns="http://www.w3.org/1999/xhtml"
+					prefix="   : http://schema.org/
+							rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+							xsd: http://www.w3.org/2001/XMLSchema#
+							rdfs: http://www.w3.org/2000/01/rdf-schema#"
+				>
+				  <div typeof=":MusicAlbum">
+					<div rel=":track">
+					  <div typeof=":ItemList">
+						<div property=":numberOfItems" datatype="xsd:integer" content="11"></div>
+						<div rel=":itemListElement">
+						  <div typeof=":ListItem">
+							<div rel=":item">
+							  <div typeof=":MusicRecording">
+								<div property=":name" content="Sugar"></div>
+							  </div>
+							</div>
+							<div property=":position" datatype="xsd:integer" content="5"></div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+					<div property=":name" content="Maroon 5 album"></div>
+				  </div>
+				</div>
+			}
+		}
 	},
 	
 	Tools : {

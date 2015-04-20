@@ -899,8 +899,6 @@
 				)
 			});
 			
-env_dbg.dPoint =
-			
 			slideData.push({
 			
 				title : "",
@@ -946,6 +944,52 @@ env_dbg.dPoint =
 						React.createElement("div", null, 
 							"and more..."
 						)
+					)
+				)
+			});
+			
+env_dbg.dPoint =
+			
+			slideData.push({
+			
+				title : "Music album in HTML",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-30x lyt-centerContent"}, 
+						React.createElement("img", {src: "./img/example_music_html.jpg", className: "lyt-centerImg"})
+					)
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Music album in RDFa",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-30x lyt-centerContent"}, 
+						React.createElement("img", {src: "./img/example_music_rdfa.jpg", className: "lyt-centerImg"})
+					)
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Music album in JSON-LD",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-30x lyt-centerContent"}, 
+						React.createElement("img", {src: "./img/example_music_jsonld.jpg", className: "lyt-centerImg"})
+					)
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Too semantic !?",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-30x lyt-centerContent"}, 
+						React.createElement("img", {src: "./img/confused_baby.png", className: "lyt-centerImg"})
 					)
 				)
 			});
