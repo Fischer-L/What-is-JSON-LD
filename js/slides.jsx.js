@@ -432,7 +432,7 @@
 				title : "Linking Data by JSON",
 				
 				content : (
-					React.createElement("div", {className: "lyt-margin-top-20x"}, 							
+					React.createElement("div", {className: "lyt-margin-top-20x"}, 
 						React.createElement("a", {href: "http://json-ld.org/"}, 
 							React.createElement("img", {src: "./img/json_ld_logo_0.png", 
 							     className: "lyt-centerImg", 
@@ -441,6 +441,17 @@
 								 }}
 							)
 						)
+					)
+				)
+			});
+
+			slideData.push({
+			
+				title : "Syntax",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-20x lyt-centerContent"}, 
+						React.createElement("span", null, "Based on ", React.createElement("a", {href: "http://json.org/"}, "JSON"))
 					)
 				)
 			});
@@ -713,12 +724,12 @@
 									
 									 objHead(1), 
 										
-										 newLine(2, "knows :"), 
+										 highlit(2, "knows :"), 
 										
 											 objHead(2), 
 												
 												 newLine(3, "\"@id\" : \"http://xmlns.com/foaf/0.1/knows\"", ","), 
-												 highlit(3, "\"@type\" : \"@id\""), 
+												 newLine(3, "\"@type\" : \"@id\""), 
 												
 											 objEnd(2), 
 										
@@ -1010,7 +1021,7 @@
 				content : (
 					React.createElement("div", {className: "lyt-margin-top-30x grid-parent grid-100 mobile-grid-100"}, 
 						
-						React.createElement("ul", {className: "lyt-centerBlock", style: { width : "70%"}}, 
+						React.createElement("ul", {className: "lyt-centerBlock", style: { width : "60%"}}, 
 							
 							React.createElement("li", {className: "lyt-margin-bottom-10x"}, "Play with examples"), 
 							
@@ -1032,7 +1043,7 @@
 				content : (
 					React.createElement("div", {className: "lyt-margin-top-30x grid-parent grid-100 mobile-grid-100"}, 
 						
-						React.createElement("ul", {className: "lyt-centerBlock", style: { width : "40%"}}, 
+						React.createElement("ul", {className: "lyt-centerBlock", style: { width : "36%"}}, 
 							
 							React.createElement("li", {className: "lyt-margin-bottom-10x"}, "Examples"), 
 							
@@ -1152,6 +1163,17 @@
 								})()
 														
 						)						
+					)
+				)
+			});
+			
+			slideData.push({
+			
+				title : "",
+				
+				content : (
+					React.createElement("h3", {className: "lyt-margin-top-40x lyt-centerContent"}, 
+						"Thank you"
 					)
 				)
 			});

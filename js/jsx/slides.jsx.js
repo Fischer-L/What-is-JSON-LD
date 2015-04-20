@@ -432,7 +432,7 @@
 				title : "Linking Data by JSON",
 				
 				content : (
-					<div className="lyt-margin-top-20x">							
+					<div className="lyt-margin-top-20x">
 						<a href="http://json-ld.org/">
 							<img src="./img/json_ld_logo_0.png"
 							     className="lyt-centerImg"
@@ -441,6 +441,17 @@
 								 }}
 							/>
 						</a>
+					</div>
+				)
+			});
+
+			slideData.push({
+			
+				title : "Syntax",
+				
+				content : (
+					<div className="lyt-margin-top-20x lyt-centerContent">
+						<span>Based on <a href="http://json.org/">JSON</a></span>
 					</div>
 				)
 			});
@@ -766,7 +777,7 @@
 											{ objHead(2) }
 												
 												{ newLine(3, "\"@id\" : \"http://xmlns.com/foaf/0.1/knows\"", ",") }
-												{ highlit(3, "\"@type\" : \"@id\"") }
+												{ newLine(3, "\"@type\" : \"@id\"") }
 												
 											{ objEnd(2) }
 										
@@ -1153,6 +1164,17 @@
 							}							
 						</ul>						
 					</div>
+				)
+			});
+			
+			slideData.push({
+			
+				title : "",
+				
+				content : (
+					<h3 className="lyt-margin-top-40x lyt-centerContent">
+						Thank you
+					</h3>
 				)
 			});
 		}
