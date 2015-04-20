@@ -898,6 +898,57 @@
 					</div>
 				)
 			});
+			
+env_dbg.dPoint =
+			
+			slideData.push({
+			
+				title : "",
+				
+				content : (
+					<h3 className="lyt-margin-top-40x lyt-centerContent">
+						Not only JSON-LD !?
+					</h3>
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Semantic Web",
+				
+				content : (
+					<div className="lyt-margin-top-30x lyt-centerContent">
+						<a href="http://semanticweb.org/wiki/Main_Page">
+							<img src="./img/semantic_web_logo.jpg" className="lyt-centerImg" />
+						</a>
+					</div>
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Semantic Web",
+				
+				content : (
+					<div className="lyt-margin-top-30x lyt-centerContent">
+						<a className="lyt-block lyt-margin-bottom-10x" href="http://en.wikipedia.org/wiki/JSON-LD">
+							JSON-LD
+						</a>
+						<a className="lyt-block lyt-margin-bottom-10x" href="http://en.wikipedia.org/wiki/N-Triples#Example">
+							RDF/XML
+						</a>
+						<a className="lyt-block lyt-margin-bottom-10x" href="http://en.wikipedia.org/wiki/RDFa#Examples">
+							RDFa
+						</a>
+						<a className="lyt-block lyt-margin-bottom-10x" href="http://en.wikipedia.org/wiki/N-Triples#Example">
+							N-Triples
+						</a>
+						<div>
+							and more...
+						</div>
+					</div>
+				)
+			});
 		}
 		
 	var i = env_dbg.isDBG() ? env_dbg.dPoint - 1 : 0,

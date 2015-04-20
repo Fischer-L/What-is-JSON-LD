@@ -330,6 +330,8 @@ var notes = {
 		* RDFa : http://en.wikipedia.org/wiki/RDFa#Examples
 		
 		* N-Triples : http://en.wikipedia.org/wiki/N-Triples#Example
+		
+		* Semantic Web : http://en.wikipedia.org/wiki/Semantic_Web#Standards
 	},
 	
 	Tools : {
@@ -375,6 +377,8 @@ var notes = {
 		"https://schema.org/"
 		
 		"http://seo.dns.com.tw/?p=2372"
+		
+		"http://semanticweb.org/wiki/Main_Page"
 	}
 }
 

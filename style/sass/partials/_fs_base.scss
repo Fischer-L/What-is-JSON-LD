@@ -222,7 +222,11 @@ h1 {
 // -- Reusable object -- //
 
 .lyt { // Layout object
-
+	
+	&-block {
+		display : block;
+	}
+	
 	&-remark {
 		font-size : 0.7rem;
 		display : none;
@@ -245,7 +249,8 @@ h1 {
 		@extend .lyt-centerBlock;
 		
 		width : 80%;
-		min-width : "200px";
+		min-width : 200px;
+		max-width : 420px;
 	}
 	
 	@for $i from 1 through 40 { // Create &-margin-???-1x/2x/3x...

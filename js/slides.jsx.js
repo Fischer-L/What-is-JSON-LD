@@ -898,6 +898,57 @@
 					)
 				)
 			});
+			
+env_dbg.dPoint =
+			
+			slideData.push({
+			
+				title : "",
+				
+				content : (
+					React.createElement("h3", {className: "lyt-margin-top-40x lyt-centerContent"}, 
+						"Not only JSON-LD !?"
+					)
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Semantic Web",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-30x lyt-centerContent"}, 
+						React.createElement("a", {href: "http://semanticweb.org/wiki/Main_Page"}, 
+							React.createElement("img", {src: "./img/semantic_web_logo.jpg", className: "lyt-centerImg"})
+						)
+					)
+				)
+			});
+			
+			slideData.push({
+			
+				title : "Semantic Web",
+				
+				content : (
+					React.createElement("div", {className: "lyt-margin-top-30x lyt-centerContent"}, 
+						React.createElement("a", {className: "lyt-block lyt-margin-bottom-10x", href: "http://en.wikipedia.org/wiki/JSON-LD"}, 
+							"JSON-LD"
+						), 
+						React.createElement("a", {className: "lyt-block lyt-margin-bottom-10x", href: "http://en.wikipedia.org/wiki/N-Triples#Example"}, 
+							"RDF/XML"
+						), 
+						React.createElement("a", {className: "lyt-block lyt-margin-bottom-10x", href: "http://en.wikipedia.org/wiki/RDFa#Examples"}, 
+							"RDFa"
+						), 
+						React.createElement("a", {className: "lyt-block lyt-margin-bottom-10x", href: "http://en.wikipedia.org/wiki/N-Triples#Example"}, 
+							"N-Triples"
+						), 
+						React.createElement("div", null, 
+							"and more..."
+						)
+					)
+				)
+			});
 		}
 		
 	var i = env_dbg.isDBG() ? env_dbg.dPoint - 1 : 0,
