@@ -1,0 +1,13 @@
+Version : 0.1.0
+
+Date : 2015-4-21
+
+Changes : 
+	* The 1st release
+	
+Remarks :
+	* Tested on FF 37.0.1
+	* Future improvements:
+		> Complete mobile support
+		> Add nice font style
+	
