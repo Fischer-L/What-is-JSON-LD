@@ -922,7 +922,7 @@
 					)
 				)
 			});
-env_dbg.dPoint = 
+			
 			slideData.push({
 			
 				title : "",
@@ -1185,8 +1185,15 @@ env_dbg.dPoint =
 				title : "",
 				
 				content : (
-					React.createElement("h3", {className: "lyt-margin-top-1x lyt-centerContent", style: {  marginTop: "-110px"}}, 
-						"Thank you"
+					React.createElement("div", {className: "lyt-centerContent", style: {  marginTop: "-110px"}}, 
+						React.createElement("h3", null, 
+							"Thank you"
+						), 
+						React.createElement("p", {className: "lyt-margin-top-12x"}, 
+							React.createElement("a", {href: "http://fischer-l.github.io/What-is-JSON-LD/"}, 
+								 String("http://fischer-l.github.io/What-is-JSON-LD/") 
+							)
+						)
 					)
 				)
 			});

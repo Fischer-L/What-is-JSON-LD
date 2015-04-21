@@ -922,7 +922,7 @@
 					</div>
 				)
 			});
-env_dbg.dPoint = 
+			
 			slideData.push({
 			
 				title : "",
@@ -1185,9 +1185,16 @@ env_dbg.dPoint =
 				title : "",
 				
 				content : (
-					<h3 className="lyt-margin-top-1x lyt-centerContent" style={{  marginTop: "-110px" }}>
-						Thank you
-					</h3>
+					<div className="lyt-centerContent" style={{  marginTop: "-110px" }}>
+						<h3>
+							Thank you
+						</h3>
+						<p className="lyt-margin-top-12x">
+							<a href="http://fischer-l.github.io/What-is-JSON-LD/">
+								{ String("http://fischer-l.github.io/What-is-JSON-LD/") }
+							</a>
+						</p>
+					</div>
 				)
 			});
 		}
