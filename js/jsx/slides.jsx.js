@@ -168,7 +168,7 @@
 				title : "What is this ?",
 				
 				content : (
-					<div>
+					<div className="lyt-padding-left-25">
 						<code>
 						
 							{ newLine(0, "<span>") }
@@ -189,11 +189,17 @@
 				title : "This is",
 				
 				content : (
-					<div>
+					<div className="lyt-padding-left-25">
 						<code>
-							{ formatoHTML(<span id="director">Frank Darabont</span>) }
-							<br/>
-							{ formatoHTML(<a id="movie" href="xyz.html">The Shawshank Redemption</a>) }
+						
+							{ newLine(0, '<span id="director">') }
+								{ newLine(1, "Frank Darabont") }
+							{ newLine(0, "</span>") }
+							
+							{ newLine(0, '<a id="movie" href="xyz.html">') }
+								{ newLine(1, "The Shawshank Redemption") }
+							{ newLine(0, "</a>") }
+							
 						</code>
 					</div>
 				)
@@ -204,7 +210,7 @@
 				title : "And what are these ?",
 				
 				content : (
-					<div className="grid-parent grid-100">
+					<div className="grid-parent grid-100 lyt-padding-left-5">
 					
 						<code className="grid-50">
 							{ objHead() }
@@ -229,7 +235,7 @@
 				title : "These are",
 				
 				content : (
-					<div>					
+					<div className="lyt-padding-left-30">				
 						<code>
 							{ objHead() }
 								"name" : "Jeremy Lin",<br/>
@@ -298,7 +304,7 @@
 				
 				content : (
 					<div className="lyt-centerContent lyt-margin-top-20x">
-						<img src="./img/sad_computer.png" />
+						<img className="lyt-margin-top-10x" src="./img/sad_computer.png" />
 					</div>
 				)
 			});
@@ -1137,7 +1143,7 @@
 				title : "References",
 				
 				content : (
-					<div className="lyt-margin-top-30x lyt-centerContent">						
+					<div className="lyt-margin-top-30x lyt-centerContent lyt-padding-left-5">						
 						<ul>						
 							{
 								(function () {

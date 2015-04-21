@@ -168,7 +168,7 @@
 				title : "What is this ?",
 				
 				content : (
-					React.createElement("div", null, 
+					React.createElement("div", {className: "lyt-padding-left-25"}, 
 						React.createElement("code", null, 
 						
 							 newLine(0, "<span>"), 
@@ -189,11 +189,17 @@
 				title : "This is",
 				
 				content : (
-					React.createElement("div", null, 
+					React.createElement("div", {className: "lyt-padding-left-25"}, 
 						React.createElement("code", null, 
-							 formatoHTML(React.createElement("span", {id: "director"}, "Frank Darabont")), 
-							React.createElement("br", null), 
-							 formatoHTML(React.createElement("a", {id: "movie", href: "xyz.html"}, "The Shawshank Redemption")) 
+						
+							 newLine(0, '<span id="director">'), 
+								 newLine(1, "Frank Darabont"), 
+							 newLine(0, "</span>"), 
+							
+							 newLine(0, '<a id="movie" href="xyz.html">'), 
+								 newLine(1, "The Shawshank Redemption"), 
+							 newLine(0, "</a>") 
+							
 						)
 					)
 				)
@@ -204,7 +210,7 @@
 				title : "And what are these ?",
 				
 				content : (
-					React.createElement("div", {className: "grid-parent grid-100"}, 
+					React.createElement("div", {className: "grid-parent grid-100 lyt-padding-left-5"}, 
 					
 						React.createElement("code", {className: "grid-50"}, 
 							 objHead(), 
@@ -229,7 +235,7 @@
 				title : "These are",
 				
 				content : (
-					React.createElement("div", null, 					
+					React.createElement("div", {className: "lyt-padding-left-30"}, 				
 						React.createElement("code", null, 
 							 objHead(), 
 								"\"name\" : \"Jeremy Lin\",", React.createElement("br", null), 
@@ -298,7 +304,7 @@
 				
 				content : (
 					React.createElement("div", {className: "lyt-centerContent lyt-margin-top-20x"}, 
-						React.createElement("img", {src: "./img/sad_computer.png"})
+						React.createElement("img", {className: "lyt-margin-top-10x", src: "./img/sad_computer.png"})
 					)
 				)
 			});
@@ -1137,7 +1143,7 @@
 				title : "References",
 				
 				content : (
-					React.createElement("div", {className: "lyt-margin-top-30x lyt-centerContent"}, 						
+					React.createElement("div", {className: "lyt-margin-top-30x lyt-centerContent lyt-padding-left-5"}, 						
 						React.createElement("ul", null, 						
 							
 								(function () {
