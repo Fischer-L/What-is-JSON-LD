@@ -2,3 +2,8 @@ node_modules/
 .sass-cache/
 style/.sass-cache/
 */.module-cache
+config.rb
+Gruntfile.js
+package.json
+README.md
+style/sass/
