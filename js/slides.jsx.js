@@ -245,6 +245,17 @@
 					)
 				)
 			});
+			
+			slideData.push({
+			
+				title : "Difficult for computer",
+				
+				content : (
+					React.createElement("div", {className: "lyt-centerContent lyt-margin-top-20x"}, 
+						React.createElement("img", {className: "lyt-margin-top-10x", src: "./img/sad_computer.png"})
+					)
+				)
+			});
 
 			slideData.push({
 			
@@ -297,17 +308,6 @@
 					)
 				)
 			});
-			
-			slideData.push({
-			
-				title : "Difficult for computer",
-				
-				content : (
-					React.createElement("div", {className: "lyt-centerContent lyt-margin-top-20x"}, 
-						React.createElement("img", {className: "lyt-margin-top-10x", src: "./img/sad_computer.png"})
-					)
-				)
-			});
 
 			slideData.push({
 			
@@ -347,6 +347,25 @@
 					)
 				)
 			});
+			
+			slideData.push({
+			
+				title : "RDF statement",
+				
+				content : (
+					React.createElement("div", {className: "lyt-centerContent lyt-margin-top-20x"}, 
+					
+						React.createElement("p", {className: "lyt-margin-bottom-20x"}, 
+							"Subject - Predicate - Object"
+						), 
+					
+						React.createElement("p", null, 
+							"\"Lin plays basketball\""
+						)
+						
+					)
+				)
+			});
 
 			slideData.push({
 			
@@ -366,25 +385,6 @@
 				content : (
 					React.createElement("div", {className: "lyt-centerContent lyt-margin-top-20x"}, 
 						React.createElement("img", {src: "./img/graph_for_computer.png"})
-					)
-				)
-			});
-
-			slideData.push({
-			
-				title : "RDF statement",
-				
-				content : (
-					React.createElement("div", {className: "lyt-centerContent lyt-margin-top-20x"}, 
-					
-						React.createElement("p", {className: "lyt-margin-bottom-20x"}, 
-							"Subject - Predicate - Object"
-						), 
-					
-						React.createElement("p", null, 
-							"\"Lin plays basketball\""
-						)
-						
 					)
 				)
 			});
@@ -573,7 +573,7 @@
 								
 									 objHead(1), 
 									
-										 newLine(2, "\"xsd\": \"http://www.w3.org/2001/XMLSchema#\"", ","), 									
+										 newLine(2, "\"schema\": \"https://schema.org/\"", ","), 									
 										 newLine(2, "..."), 
 										
 									 objEnd(1, ","), 
@@ -583,7 +583,7 @@
 									 objHead(1), 
 										
 										 newLine(2, "\"@value\" : \"2000-01-01\"", ","), 
-										 highlit(2, "\"@type\" : \"xsd:date\""), 
+										 highlit(2, "\"@type\" : \"schema:birthDate\""), 
 										
 									 objEnd(1), 
 								
@@ -611,7 +611,7 @@
 											 objHead(2), 
 												
 												 newLine(3, "\"@id\" : \"https://schema.org/birthDate\"", ","), 												
-												 newLine(3, "\"@type\" : \"https://schema.org/birthDate\""), 
+												 newLine(3, "\"@type\" : \"@id\""), 
 												
 											 objEnd(2, ","), 
 										
@@ -643,6 +643,7 @@
 										
 									 objEnd(1, ","), 
 								
+								 comment(1, "\"@id\" : \"http://foo.com/jeremy_lin\""), 
 								 highlit(1, "\"url\" : \"http://foo.com/jeremy_lin\"", ","), 
 								 newLine(1, "\"name\" : \"Jeremy Lin\""), 
 								
@@ -921,13 +922,13 @@
 					)
 				)
 			});
-			
+env_dbg.dPoint = 
 			slideData.push({
 			
 				title : "",
 				
 				content : (
-					React.createElement("h3", {className: "lyt-margin-top-40x lyt-centerContent"}, 
+					React.createElement("h3", {className: "lyt-margin-top-1x lyt-centerContent", style: {  marginTop: "-110px"}}, 
 						"Not only JSON-LD !?"
 					)
 				)
@@ -1184,7 +1185,7 @@
 				title : "",
 				
 				content : (
-					React.createElement("h3", {className: "lyt-margin-top-40x lyt-centerContent"}, 
+					React.createElement("h3", {className: "lyt-margin-top-1x lyt-centerContent", style: {  marginTop: "-110px"}}, 
 						"Thank you"
 					)
 				)

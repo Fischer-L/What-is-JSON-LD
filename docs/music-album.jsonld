@@ -1,0 +1,19 @@
+{
+	"@context": "http://schema.org",
+	"@type" : "MusicAlbum",
+	"name" : "Maroon 5 album",
+	"track" : {
+		 "@type": "ItemList",
+		 "numberOfItems": 11,
+		 "itemListElement": [
+			{
+				"@type": "ListItem",
+				"position": 5,
+				"item": {
+				  "@type": "MusicRecording",
+				  "name": "Sugar"
+				}
+			}
+		 ]
+	}
+}
