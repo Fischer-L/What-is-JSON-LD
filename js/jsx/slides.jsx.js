@@ -170,9 +170,15 @@
 				content : (
 					<div>
 						<code>
-							{ formatoHTML(<span>Frank Darabont</span>) }
-							<br/>
-							{ formatoHTML(<a href="xyz.html">The Shawshank Redemption</a>) }
+						
+							{ newLine(0, "<span>") }
+								{ newLine(1, "Frank Darabont") }
+							{ newLine(0, "</span>") }
+							
+							{ newLine(0, '<a href="xyz.html">') }
+								{ newLine(1, "The Shawshank Redemption") }
+							{ newLine(0, "</a>") }
+							
 						</code>
 					</div>
 				)

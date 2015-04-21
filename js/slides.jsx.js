@@ -170,9 +170,15 @@
 				content : (
 					React.createElement("div", null, 
 						React.createElement("code", null, 
-							 formatoHTML(React.createElement("span", null, "Frank Darabont")), 
-							React.createElement("br", null), 
-							 formatoHTML(React.createElement("a", {href: "xyz.html"}, "The Shawshank Redemption")) 
+						
+							 newLine(0, "<span>"), 
+								 newLine(1, "Frank Darabont"), 
+							 newLine(0, "</span>"), 
+							
+							 newLine(0, '<a href="xyz.html">'), 
+								 newLine(1, "The Shawshank Redemption"), 
+							 newLine(0, "</a>") 
+							
 						)
 					)
 				)
@@ -777,7 +783,7 @@
 											 objHead(2), 
 												
 												 newLine(3, "\"@id\" : \"http://xmlns.com/foaf/0.1/knows\"", ","), 
-												 highlit(3, "\"@type\" : \"@id\""), 
+												 newLine(3, "\"@type\" : \"@id\""), 
 												
 											 objEnd(2), 
 										
