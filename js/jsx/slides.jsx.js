@@ -1179,7 +1179,7 @@
 					</div>
 				)
 			});
-env_dbg.dPoint  =			
+			
 			slideData.push({
 			
 				title : "",
