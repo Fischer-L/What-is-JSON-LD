@@ -1120,7 +1120,7 @@
 			slideData.push({
 			
 				title : "jsonld.js",
-				
+
 				content : (
 					<div className="lyt-margin-top-30x grid-parent grid-100 mobile-grid-100">
 						
@@ -1133,7 +1133,7 @@
 									{ newLine(0, "https://github.com/digitalbazaar/jsonld.js") }
 								</a>
 							</li>
-							
+
 						</ul>
 					</div>
 				)
@@ -1176,6 +1176,42 @@
 								})()
 							}							
 						</ul>						
+					</div>
+				)
+			});
+			
+			slideData.push({
+			
+				title : "",
+				
+				content : (
+					<div className="lyt-centerContent" style={{  marginTop: "-110px" }}>
+						<span>
+							Wait ! One more thing before ending.
+						</span>
+					</div>
+				)
+			});
+			
+			slideData.push({
+			
+				title : "",
+				
+				content : (
+					<div className="lyt-centerContent" style={{  marginTop: "-110px" }}>
+						<span>
+							The relatioship between JSON-LD and RDF
+						</span>
+						<p className="lyt-margin-top-12x">
+							<a href="http://www.w3.org/TR/json-ld/#relationship-to-rdf">
+								{ String("http://www.w3.org/TR/json-ld/#relationship-to-rdf") }
+							</a>
+						</p>
+						<p className="lyt-margin-top-12x">
+							<a href="http://manu.sporny.org/2014/json-ld-origins-2/">
+								{ String("A article from JSON-LD lead editor") }
+							</a>
+						</p>
 					</div>
 				)
 			});
