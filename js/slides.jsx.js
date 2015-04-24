@@ -1120,7 +1120,7 @@
 			slideData.push({
 			
 				title : "jsonld.js",
-				
+
 				content : (
 					React.createElement("div", {className: "lyt-margin-top-30x grid-parent grid-100 mobile-grid-100"}, 
 						
@@ -1133,7 +1133,7 @@
 									 newLine(0, "https://github.com/digitalbazaar/jsonld.js") 
 								)
 							)
-							
+
 						)
 					)
 				)
@@ -1176,6 +1176,42 @@
 								})()
 														
 						)						
+					)
+				)
+			});
+env_dbg.dPoint  =			
+			slideData.push({
+			
+				title : "",
+				
+				content : (
+					React.createElement("div", {className: "lyt-centerContent", style: {  marginTop: "-110px"}}, 
+						React.createElement("span", null, 
+							"Wait! One more thing before ending."
+						)
+					)
+				)
+			});
+			
+			slideData.push({
+			
+				title : "",
+				
+				content : (
+					React.createElement("div", {className: "lyt-centerContent", style: {  marginTop: "-110px"}}, 
+						React.createElement("span", null, 
+							"The relatioship between JSON-LD and RDF"
+						), 
+						React.createElement("p", {className: "lyt-margin-top-12x"}, 
+							React.createElement("a", {href: "http://www.w3.org/TR/json-ld/#relationship-to-rdf"}, 
+								 String("http://www.w3.org/TR/json-ld/#relationship-to-rdf") 
+							)
+						), 
+						React.createElement("p", {className: "lyt-margin-top-12x"}, 
+							React.createElement("a", {href: "http://manu.sporny.org/2014/json-ld-origins-2/"}, 
+								 String("A article from JSON-LD lead editor") 
+							)
+						)
 					)
 				)
 			});
