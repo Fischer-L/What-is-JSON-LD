@@ -1,7 +1,3 @@
-/*
-
-*/
-
 var notes = {
 	
 	The current web : {
@@ -319,8 +315,14 @@ var notes = {
 					// Your JSON-LD content
 				}
 			</script>
-		}
+		},
 		
+		* JSON-LD as well as RDF : {
+			
+			* http://manu.sporny.org/2014/json-ld-origins-2/
+			
+			* http://www.w3.org/TR/json-ld/#relationship-to-rdf
+		}
 	},
 	
 	More Linked Data : {
