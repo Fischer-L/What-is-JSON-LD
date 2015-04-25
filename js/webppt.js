@@ -1,19 +1,15 @@
 /**
- * pptility v0.1.0 :
- * The utility collections for the ppt.
- *
+ * 
  */
- (function (global) {
+(function (global) {
+
+	// -- Setup -- //
 	
 	"use strict";
 	
-	if (!(global instanceof Object)) global = window;
-	
-	// There shall be on global ppt obj holding all stuffs for the JSON-LD ppt.
-	// We put our utilities under it
-	if (!(global.ppt instanceof Object)) global.ppt = {};
-	
-	global.ppt.pptility = {
+	var webpptCtrl = {},
+			
+		pptility = {
 	
 		/*	Func:
 				From John Resig.
@@ -401,11 +397,197 @@
 		}())
 	};
 	
-	/*
-	 * Do some extra works about the prototype chain
-	 */
-	if(!Array.prototype.forEach){Array.prototype.forEach=function(callback,thisArg){var T,k;if(this==null){throw new TypeError(" this is null or not defined");}var O=Object(this);var len=O.length>>>0;if(typeof callback!=="function"){throw new TypeError(callback+" is not a function");}if(thisArg){T=thisArg}k=0;while(k<len){var kValue;if(k in O){kValue=O[k];callback.call(T,kValue,k,O)}k++}}}
-	if(!Array.prototype.indexOf){Array.prototype.indexOf=function(searchElement,fromIndex){if(this===undefined||this===null){throw new TypeError('"this" is null or not defined');}var length=this.length>>>0;fromIndex=+fromIndex||0;if(Math.abs(fromIndex)===Infinity){fromIndex=0}if(fromIndex<0){fromIndex+=length;if(fromIndex<0){fromIndex=0}}for(;fromIndex<length;fromIndex++){if(this[fromIndex]===searchElement){return fromIndex}}return-1}}
-	if(!String.prototype.trim){String.prototype.trim=function(){var ws=/\s/,str=this.replace(/^\s\s*/,''),i=str.length;while(ws.test(str.charAt(--i)));return str.slice(0,i+1);}}
+	// !-- Setup -- //
 	
- }(window));
+	
+	
+	var _CONST = {
+		
+			slideAnimDuration : 1000,
+		
+			keyCode : {
+				left : 39,
+				right : 37
+			},
+			
+			classNames : {
+				prevSlide : "ppt-prevSlide",
+				nextSlide : "ppt-nextSlide",
+				currentSlide : "ppt-currentSlide",
+				slideContent : "ppt-slide-content"
+			}
+		},
+		
+		_flag_sliding = false,
+		
+		_pptRoot,
+		
+		_pptElem;
+	
+	var _slides = [];
+			_slides.currentIdx = 0;
+		
+	var _cmds = []; {
+			
+			_cmds.TYPE_NEXT = "slide to the next";
+			
+			_cmds.TYPE_PREV = "slide to the previous";
+			
+			_cmds.execNext = function () {
+				
+				if (this.length > 0) {
+				
+					switch (this.shift()) {						
+						case this.TYPE_NEXT: ppt.next(); break;
+						case this.TYPE_PREV: ppt.prev(); break;
+					}
+				}
+			}
+			
+			_cmds.clear = function () {
+				_cmds.splice(0, _cmds.length);
+			}
+		}
+	
+	var _setPrevSlide  = function (slide) {
+	
+			pptility.removeClass(slide, [ ppt.CONST.classNames.nextSlide, ppt.CONST.classNames.currentSlide ]);	
+			
+			pptility.addClass(slide, ppt.CONST.classNames.prevSlide);
+		},
+		
+		_setNextSlide = function (slide) {
+		
+			pptility.removeClass(slide, [ ppt.CONST.classNames.prevSlide, ppt.CONST.classNames.currentSlide ]);	
+			
+			pptility.addClass(slide, ppt.CONST.classNames.nextSlide);		
+		},
+		
+		_setCurrentSlide = function (slide) {
+		
+			pptility.removeClass(slide, [ ppt.CONST.classNames.prevSlide, ppt.CONST.classNames.nextSlide ]);
+			
+			pptility.addClass(slide, ppt.CONST.classNames.currentSlide);		
+		},
+		
+		_slidePPT = function (cmdType) {
+			
+			if (cmdType == _cmds.TYPE_NEXT) {
+				
+				if (_slides.currentIdx + 1 < _slides.length) {
+					// Make sure there is next slide				
+				} else {
+					cmdType = undefined;
+				}
+				
+			} else if (cmdType == _cmds.TYPE_PREV) {
+				
+				if (_slides.currentIdx - 1 >= 0) {
+					// Make sure there is previous slide				
+				} else {
+					cmdType = undefined;
+				}
+				
+			} else {
+				cmdType = undefined;
+			}
+			
+			if (!cmdType) {
+				
+				// If no cmdType, it should be that no more next/prevous slide.
+				// Let's clear buffered cmds
+				_cmds.clear();
+			
+			} else {
+				
+				if (!_flag_sliding) {
+									
+					_flag_sliding = true;
+					
+					if (cmdType == _cmds.TYPE_NEXT) {
+						
+						// Slide out the current one to become previous
+						_setPrevSlide(_slides[_slides.currentIdx++]);
+					
+					} else if (cmdType == _cmds.TYPE_PREV) {
+						
+						// Slide out the current one to become next
+						_setNextSlide(_slides[_slides.currentIdx--]);
+					}
+						
+					// Wait the slide out animation a little while.
+					// Then, slide in the next slide.
+					setTimeout(function () {
+						
+						var s = _slides[_slides.currentIdx];
+						
+						_setCurrentSlide(s);
+					
+					}, _CONST.slideAnimDuration / 3);
+					
+					// After the slide out animation is done,
+					// let's do the next operation.
+					setTimeout(function () {
+										
+						_flag_sliding = false;
+						
+						_cmds.execNext();
+					
+					}, _CONST.slideAnimDuration);
+					
+				} else {
+					// It is sliding.
+					// Let's buf this next cmd for later
+					_cmds.push(cmdType);
+				}
+			}
+		};
+	
+	var _webppt = {
+	
+			addSlide : function (slide) {
+				
+				var elems = pptility.isArr(slide) ? slide : [slide],
+				
+					docFragment = document.createDocumentFragment();
+				
+				elems.forEach(function (e, i, es) {
+					
+					if (pptility.isHTMLElem(e)) {
+					
+						_slides.push(e);
+						
+						docFragment.appendChild(e);
+					}
+				});
+				
+				_pptElem.appendChild(docFragment);
+				
+				return _slides.length;
+			},
+			
+			play : function (start) {
+			
+				if (_slides.length > 0) {
+					
+					start = Math.min(_slides.length - 1, Math.max(0, start));
+					
+					_slides.currentIdx = isNaN(start) ? 0 : start;
+					
+					for (var i = 0; i < _slides.length; i++) _setNextSlide(_slides[i]);
+					
+					_setCurrentSlide(_slides.currentIdx);
+				}
+			},
+			
+			next : function () {
+				_slidePPT(_cmds.TYPE_NEXT);
+			},
+			
+			prev : function () {
+				_slidePPT(_cmds.TYPE_PREV);
+			}
+		};
+	
+	
+}(window));
